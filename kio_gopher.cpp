@@ -73,7 +73,7 @@ void gopher::get(const KURL& url )
 	int i, port, bytes;
 	char aux[10240];
 	QChar type;
-	QString path(url.path());
+	QString path(url.path() + url.query());
 	QByteArray *received = new QByteArray();
 	QTextStream ts(*received, IO_WriteOnly);
 	
@@ -114,14 +114,12 @@ void gopher::get(const KURL& url )
 
 void gopher::processDirectory(QCString *received, QString host, QString path)
 {
-	// TODO Make the <li> icon thing work
 	QCString *show = new QCString();
-	QString folderPath, *info = new QString();
-	folderPath = KGlobal::iconLoader() -> iconPath("folder", 0);
+	QString *info = new QString();
 	if (path == "/") path = "";
 	mimeType("text/html");
 	show -> append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n");
-	show -> append("<html xmlns=\"http://www.w3.org/1999/xhtml\">\n\t<head>\n\t\t<title>" + host + path + "</title>\n\t\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\" />\n\t\t<style type=\"text/css\">\n\t\t\t.information{ border : 1px solid #000000; text-align : center; background-color : #abcdef; }\n\t\t\t.folder{ list-style-image: url(" + folderPath + ") }\n\t\t</style>\n\t</head>\n");
+	show -> append("<html xmlns=\"http://www.w3.org/1999/xhtml\">\n\t<head>\n\t\t<title>" + host + path + "</title>\n\t\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\" />\n\t\t<style type=\"text/css\">\n\t\t\t.information{ border : 1px solid #000000; text-align : center; background-color : #abcdef; }\n\t\t</style>\n\t</head>\n");
 	show -> append("\t<body>\n\t\t<h1>" + host + path + "</h1>\n\t\t<ul>\n");
 	int i = received -> find("\r\n");
 	while(i != -1)
