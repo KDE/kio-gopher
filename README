@@ -7,8 +7,4 @@ It is still in development.
 Currently supports partially gopher protocol (only types 0 and 1 are 
 recognised). Support for gopher+ protocol is planned.
 
-Known bugs:
-gopher://gopher.quux.org/Humor and Fun/Microsoft_KSH.txt renders as 
-text/plain and it should be text/html
-
 Albert Astals Cid tsdgeos@terra.es

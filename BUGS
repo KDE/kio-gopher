@@ -1,0 +1,9 @@
+Konqueror makes too much use of the extensions, and i don't know how to sort 
+that.
+ - gopher://gopher.quux.org/Humor and Fun/Microsoft_KSH.txt is a directory so 
+   it should be shown as html, but konqueror shows it as a text file.
+ - gopher://gopher.quux.org/Archives/mirrors/ftp.cs.indiana.edu is a directory
+   so it should be shown as html but konqueror thinks it is a keduca file and
+   wants to save it :-/
+
+i suppose more similar things

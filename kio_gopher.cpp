@@ -10,6 +10,7 @@
 
 #include <kinstance.h>
 #include <klocale.h>
+#include <kmimetype.h>
 
 #include <stdlib.h>
 
@@ -101,9 +102,9 @@ void gopher::get(const KURL& url )
 	if (seemsDirectory(received)) processDirectory(received, url.host(), url.path());
 	else
 	{
-		// if it is not a directoy be dump the data completely on konqy
-		// hoping it'll not how to handle it
-		// TODO: use kmimetype guessing habilities
+		// we pass all the received data to kmimetype and hope we get the good mimetype
+		// hoping it'll know how to handle it
+		mimeType(KMimeType::findByContent(*received)->name());
 		data(*received);
 	}
 	closeDescriptor();
@@ -137,7 +138,10 @@ void gopher::processDirectoryLine(QCString data, QCString *show)
 	QString type, name, url, server, port;
 	type = data.left(1);
 	data.remove(0, 1);
-	if (type == "0" || type == "1")
+	// those are the standard gopher types
+	if (type == "0" || type == "1" || type == "2" || type == "4" || type == "5" 
+		|| type == "6" || type == "7" || type == "8" || type == "9" || type == "+" 
+		|| type == "T" || type == "g" || type == "I")
 	{
 		i = data.find("\t");
 		name = data.left(i);
