@@ -60,7 +60,7 @@ void gopher::get(const KURL& url )
 	if (url.port() != 0) port = url.port();
 	else port = 70;
 	infoMessage(i18n("Connecting to %1...").arg(url.host()));
-	if (!connectToHost(url.host(), port)) return;	
+	if (!connectToHost(url.host(), port)) return;
 	infoMessage(i18n("%1 contacted. Retrieving data...").arg(url.host()));
 	bytes = 0;
 
@@ -98,8 +98,17 @@ void gopher::processDirectory(QCString *received, QString host, QString path)
 	if (path == "/") path = "";
 	mimeType("text/html");
 	show -> append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n");
-	show -> append("<html xmlns=\"http://www.w3.org/1999/xhtml\">\n\t<head>\n\t\t<title>" + host + path + "</title>\n\t\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\" />\n\t\t<style type=\"text/css\">\n\t\t\t.information{ border : 1px solid #000000; text-align : center; background-color : #abcdef; }\n\t\t</style>\n\t</head>\n");
-	show -> append("\t<body>\n\t\t<h1>" + host + path + "</h1>\n\t\t<ul>\n");
+	show -> append("<html xmlns=\"http://www.w3.org/1999/xhtml\">\n");
+	show -> append("\t<head>\n");
+	show -> append("\t\t<title>" + host + path + "</title>\n");
+	show -> append("\t\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\" />\n");
+	show -> append("\t\t<style type=\"text/css\">\n");
+	show -> append("\t\t\ttable{ border : 1px solid #000000; background-color : #abcdef; }\n");
+	show -> append("\t\t</style>\n");
+	show -> append("\t</head>\n");
+	show -> append("\t<body>\n");
+	show -> append("\t\t<h1>" + host + path + "</h1>\n");
+	show -> append("\t\t<ul>\n");
 	int i = received -> find("\r\n");
 	while(i != -1)
 	{
@@ -108,8 +117,17 @@ void gopher::processDirectory(QCString *received, QString host, QString path)
 		i = received -> find("\r\n");
 	}
 	show -> append("\t\t</ul>\n");
-	if (!info -> isEmpty()) show -> append("\t\t<table width=\"75%\" class=\"information\">\n\t\t\t<caption>" + i18n("Information") + "</caption>\n\t\t\t<tr>\n\t\t\t\t<td>" + *info + "</td>\n\t\t\t</tr>\n\t\t</table>\n");
-	show -> append("\t</body>\n</html>");
+	if (!info -> isEmpty())
+	{
+		show -> append("\t\t<table>\n");
+		show -> append("\t\t\t<caption>" + i18n("Information") + "</caption>\n");
+		show -> append("\t\t\t<tr>\n");
+		show -> append("\t\t\t\t<td>" + *info + "</td>\n");
+		show -> append("\t\t\t</tr>\n");
+		show -> append("\t\t</table>\n");
+	}
+	show -> append("\t</body>\n");
+	show -> append("</html>\n");
 	data(*show);
 }
 
@@ -119,8 +137,10 @@ void gopher::processDirectoryLine(QCString data, QCString *show, QString *info)
 	// gopher+ <type><display><tab><selector><tab><server><tab><port><tab><things><\r><\n>
 	int i;
 	QString type, name, url, server, port;
+	
 	type = data.left(1);
 	data.remove(0, 1);
+	
 	i = data.find("\t");
 	name = data.left(i);
 	data.remove(0, i + 1);
@@ -138,10 +158,11 @@ void gopher::processDirectoryLine(QCString data, QCString *show, QString *info)
 	if (type == "i")
 	{
 		info -> append(name);
+		info -> append("<br>");
 	}
 	else if (type == ".")
 	{
-		// it's final line, ignore it
+		// it's the final line, ignore it
 	}
 	else
 	{
@@ -160,7 +181,8 @@ void gopher::processDirectoryLine(QCString data, QCString *show, QString *info)
 		//  T   Item points to a text-based tn3270 session.
 		//  g   Item is a GIF format graphics file.
 		//  I   Item is some kind of image file.  Client decides how to display.
-		show -> append("\t\t\t<li>\n\t\t\t\t<a href=\"gopher://");
+		show -> append("\t\t\t<li>\n");
+		show -> append("\t\t\t\t<a href=\"gopher://");
 		show -> append(server);
 		if (port != "70")
 		{
@@ -170,7 +192,8 @@ void gopher::processDirectoryLine(QCString data, QCString *show, QString *info)
 		show -> append("/" + type + url);
 		show -> append("\">");
 		show -> append(name);
-		show -> append("</a>\n\t\t\t</li>\n");
+		show -> append("</a>\n");
+		show -> append("\t\t\t</li>\n");
 	}
 }
 
