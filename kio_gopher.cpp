@@ -127,7 +127,7 @@ void gopher::processDirectory(QCString *received, QString host, QString path)
 		i = received -> find("\r\n");
 	}
 	show -> append("\t\t</ul>\n");
-	if (!info -> isEmpty()) show -> append("\t\t<table>\n\t\t\t<caption>" + i18n("Information") + "</caption>\n\t\t\t<tr>\n\t\t\t\t<td>" + *info + "</td>\n\t\t\t</tr>\n\t\t</table>\n");
+	if (!info -> isEmpty()) show -> append("\t\t<table width=\"75%\" style=\"border : 1px solid #000000; text-align  : center; background-color: #abcdef;\">\n\t\t\t<caption>" + i18n("Information") + "</caption>\n\t\t\t<tr>\n\t\t\t\t<td>" + *info + "</td>\n\t\t\t</tr>\n\t\t</table>\n");
 	show -> append("\t</body>\n</html>");
 	data(*show);	
 }
@@ -162,6 +162,10 @@ void gopher::processDirectoryLine(QCString data, QCString *show, QString *info)
 	if (type == "i")
 	{
 		info -> append(name);
+	}
+	else if (type == ".")
+	{
+		// it's final line, ignore it
 	}
 	else
 	{
