@@ -42,7 +42,7 @@ class gopher : public KIO::TCPSlaveBase
 
 	private:
 		void processDirectory(QCString *received, QString host, QString path);
-		void processDirectoryLine(QCString data, QCString *show);
+		void processDirectoryLine(QCString data, QCString *show, QString *info);
 		bool seemsDirectory(QCString *received);
 		bool seemsDirectoryLine(QCString received);
 		int parsePort(QCString received);

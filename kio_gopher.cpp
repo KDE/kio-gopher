@@ -113,23 +113,26 @@ void gopher::get(const KURL& url )
 void gopher::processDirectory(QCString *received, QString host, QString path)
 {
 	QCString *show = new QCString();
+	QString *info = new QString();
 	if (path == "/") path = "";
 	mimeType("text/html");
 	show -> append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n");
-	show -> append("<html xmlns=\"http://www.w3.org/1999/xhtml\">\n\t<head>\n\t\t<title>" + host + path + "</title>\n\t</head>\n");
+	show -> append("<html xmlns=\"http://www.w3.org/1999/xhtml\">\n\t<head>\n\t\t<title>" + host + path + "</title>\n\t\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\" />\n\t</head>\n");
 	show -> append("\t<body>\n\t\t<h1>" + host + path + "</h1>\n\t\t<ul>\n");
 	int i = received -> find("\r\n");
 	while(i != -1)
 	{
-		processDirectoryLine(received -> left(i), show);
+		processDirectoryLine(received -> left(i), show, info);
 		received -> remove(0, i + 2);
 		i = received -> find("\r\n");
 	}
-	show -> append("\t\t</ul>\n\t</body>\n</html>");
+	show -> append("\t\t</ul>\n");
+	if (!info -> isEmpty()) show -> append("\t\t<table>\n\t\t\t<caption>" + i18n("Information") + "</caption>\n\t\t\t<tr>\n\t\t\t\t<td>" + *info + "</td>\n\t\t\t</tr>\n\t\t</table>\n");
+	show -> append("\t</body>\n</html>");
 	data(*show);	
 }
 
-void gopher::processDirectoryLine(QCString data, QCString *show)
+void gopher::processDirectoryLine(QCString data, QCString *show, QString *info)
 {
 	// gopher <type><display><tab><selector><tab><server><tab><port><\r><\n>
 	// gopher+ <type><display><tab><selector><tab><server><tab><port><tab><things><\r><\n>
@@ -138,26 +141,34 @@ void gopher::processDirectoryLine(QCString data, QCString *show)
 	QString type, name, url, server, port;
 	type = data.left(1);
 	data.remove(0, 1);
-	// Right now don't use types for nothing
-	// those are the standard gopher types
-	//if (type == "0" || type == "1" || type == "2" || type == "4" || type == "5" 
-	//	|| type == "6" || type == "7" || type == "8" || type == "9" || type == "+" 
-	//	|| type == "T" || type == "g" || type == "I")
-//	{
-		i = data.find("\t");
-		name = data.left(i);
-		data.remove(0, i + 1);
-		i = data.find("\t");
-		url = data.left(i);
-		data.remove(0, i + 1);
-		i = data.find("\t");
-		server = data.left(i);
-		data.remove(0, i + 1);
-		i = data.find("\t");
-		port = data.left(i);
-		data.remove(0, i + 1);
+	i = data.find("\t");
+	name = data.left(i);
+	data.remove(0, i + 1);
+
+	i = data.find("\t");
+	url = data.left(i);
+	data.remove(0, i + 1);
+	
+	i = data.find("\t");
+	server = data.left(i);
+	data.remove(0, i + 1);
+	
+	i = data.find("\t");
+	port = data.left(i);
+	data.remove(0, i + 1);
 		
-		if (url.left(1) != "/") url.prepend("/");
+	if (url.left(1) != "/") url.prepend("/");
+	
+	if (type == "i")
+	{
+		info -> append(name);
+	}
+	else
+	{
+		// those are the standard gopher types
+		//if (type == "0" || type == "1" || type == "2" || type == "4" || type == "5" 
+		//	|| type == "6" || type == "7" || type == "8" || type == "9" || type == "+" 
+		//	|| type == "T" || type == "g" || type == "I")
 		show -> append("\t\t\t<li>\n\t\t\t\t<a href=\"gopher://");
 		show -> append(server);
 		if (port != "70")
@@ -169,7 +180,7 @@ void gopher::processDirectoryLine(QCString data, QCString *show)
 		show -> append("\">");
 		show -> append(name);
 		show -> append("</a>\n\t\t\t</li>\n");
-//	}
+	}
 }
 
 bool gopher::seemsDirectory(QCString *received)
