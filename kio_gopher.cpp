@@ -89,6 +89,7 @@ void gopher::get(const KURL& url )
 	}
 	closeDescriptor();
 	finished();
+	delete received;
 }
 
 void gopher::processDirectory(QCString *received, QString host, QString path)
@@ -130,6 +131,9 @@ void gopher::processDirectory(QCString *received, QString host, QString path)
 	show -> append("\t</body>\n");
 	show -> append("</html>\n");
 	data(*show);
+	delete show;
+	delete info;
+	delete received;
 }
 
 void gopher::processDirectoryLine(QCString data, QCString *show, QString *info)
