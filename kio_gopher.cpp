@@ -105,28 +105,17 @@ void gopher::processDirectory(QCString *received, QString host, QString path)
 	show -> append("\t\t<title>" + host + path + "</title>\n");
 	show -> append("\t\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\" />\n");
 	show -> append("\t\t<style type=\"text/css\">\n");
-	show -> append("\t\t\ttable{ border : 1px solid #000000; background-color : #abcdef; }\n");
+	show -> append("\t\t\t.info{ font-size : small; }\n");
 	show -> append("\t\t</style>\n");
 	show -> append("\t</head>\n");
 	show -> append("\t<body>\n");
 	show -> append("\t\t<h1>" + host + path + "</h1>\n");
-	show -> append("\t\t<ul>\n");
 	findLine(received, &i, &remove);
 	while(i != -1)
 	{
 		processDirectoryLine(received -> left(i), show, info);
 		received -> remove(0, i + remove);
 		findLine(received, &i, &remove);
-	}
-	show -> append("\t\t</ul>\n");
-	if (!info -> isEmpty())
-	{
-		show -> append("\t\t<table>\n");
-		show -> append("\t\t\t<caption>" + i18n("Information") + "</caption>\n");
-		show -> append("\t\t\t<tr>\n");
-		show -> append("\t\t\t\t<td>" + *info + "</td>\n");
-		show -> append("\t\t\t</tr>\n");
-		show -> append("\t\t</table>\n");
 	}
 	show -> append("\t</body>\n");
 	show -> append("</html>\n");
@@ -163,14 +152,19 @@ void gopher::processDirectoryLine(QCString data, QCString *show, QString *info)
 	if (type == "i")
 	{
 		info -> append(name);
-		info -> append("<br>");
-	}
-	else if (type == ".")
-	{
-		// it's the final line, ignore it
+		info -> append("<br />");
 	}
 	else
 	{
+		if (!info -> isEmpty())
+		{
+			show -> append("\t\t<div class=\"info\">\n");
+			show -> append("\t\t\t" + *info + "\n");
+			show -> append("\t\t</div>\n");
+			*info = "";
+		}
+		// it's the final line, ignore it
+		if (type == ".") return;
 		// those are the standard gopher types defined in the rfc
 		//  0   Item is a file
 		//  1   Item is a directory
@@ -186,7 +180,7 @@ void gopher::processDirectoryLine(QCString data, QCString *show, QString *info)
 		//  T   Item points to a text-based tn3270 session.
 		//  g   Item is a GIF format graphics file.
 		//  I   Item is some kind of image file.  Client decides how to display.
-		show -> append("\t\t\t<li>\n");
+		show -> append("\t\t\t<div>");
 		show -> append("\t\t\t\t<a href=\"gopher://");
 		show -> append(server);
 		if (port != "70")
@@ -196,9 +190,10 @@ void gopher::processDirectoryLine(QCString data, QCString *show, QString *info)
 		}
 		show -> append("/" + type + url);
 		show -> append("\">");
+		show -> append("- ");
 		show -> append(name);
-		show -> append("</a>\n");
-		show -> append("\t\t\t</li>\n");
+		show -> append("</a><br />\n");
+		show -> append("\t\t\t</div>");
 	}
 }
 
