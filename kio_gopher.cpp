@@ -11,9 +11,10 @@
 #include <kinstance.h>
 #include <klocale.h>
 #include <kmimemagic.h>
-#include <stdlib.h>
 
 #include <qbuffer.h>
+
+#include <stdlib.h>
 
 #include "kio_gopher.h"
 
