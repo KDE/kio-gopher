@@ -181,7 +181,7 @@ void gopher::processDirectoryLine(QCString data, QCString *show, QString *info)
 		//  T   Item points to a text-based tn3270 session.
 		//  g   Item is a GIF format graphics file.
 		//  I   Item is some kind of image file.  Client decides how to display.
-		if (type == "1") show -> append("\t\t\t<li class=\"folder\">\n\t\t\t\t<a href=\"gopher://");
+		if (type == "1") show -> append("\t\t\t<li>\n\t\t\t\t<a href=\"gopher://");
 		else show -> append("\t\t\t<li>\n\t\t\t\t<a href=\"gopher://");
 
 		show -> append(server);
