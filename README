@@ -1,10 +1,14 @@
 Gopher kioslave Readme
 
-This is a small readme for anyone curious enough to checkout that 
-gopher kioslave and try it.
+This adds support for the gopher protocol to konqueror.
 
-It is still in development. 
-Currently it supports most of the gopher protocol (with bugs). 
+It is still in development.
+
+It has been tested to work with KDE 3.2 Betas.
+KDE 3.1.x is not supported, but it is likely to work.
+
+Currently it supports most (if not all) of the gopher protocol. 
+
 Support for gopher+ protocol is planned.
 
-Albert Astals Cid tsdgeos@terra.es
+Albert Astals Cid tsdgeos DOT terra AT es
