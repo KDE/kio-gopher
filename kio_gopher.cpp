@@ -69,8 +69,9 @@ void gopher::setHost(const QString &/*host*/, int /*port*/, const QString &/*use
 void gopher::get(const KURL& url )
 {
 	int i, port, bytes;
-	char aux[10241];
+	char aux[1025];
 	QString path(url.path());
+	// TODO: QCString sucks, it does not work when receiving binary data 
 	QCString *received = new QCString();
 	
 	if (url.port() != 0) port = url.port();
@@ -103,7 +104,7 @@ void gopher::get(const KURL& url )
 	else
 	{
 		// we pass all the received data to kmimetype and hope we get the good mimetype
-		// hoping it'll know how to handle it
+		// hoping konqueror will know how to handle it
 		mimeType(KMimeType::findByContent(*received)->name());
 		data(*received);
 	}
@@ -159,15 +160,15 @@ void gopher::processDirectoryLine(QCString data, QCString *show)
 		if (url.left(1) != "/") url.prepend("/");
 		show -> append("\t\t<a href=\"gopher://");
 		show -> append(server);
-		show -> append(url);
-		show -> append("\">");
-		show -> append(name);
-		show -> append("</a>\n");
 		if (port != "70")
 		{
 			show -> append(":");
 			show -> append(port);
 		}
+		show -> append(url);
+		show -> append("\">");
+		show -> append(name);
+		show -> append("</a>\n");
 		show -> append("<br>\n");
 	}
 }

@@ -4,7 +4,7 @@ This is a small readme for anyone curious enough to checkout that
 gopher kioslave and try it.
 
 It is still in development. 
-Currently supports partially gopher protocol (only types 0 and 1 are 
-recognised). Support for gopher+ protocol is planned.
+Currently it supports most of the gopher protocol (with bugs). 
+Support for gopher+ protocol is planned.
 
 Albert Astals Cid tsdgeos@terra.es
