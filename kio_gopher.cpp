@@ -64,9 +64,13 @@ void gopher::get(const KURL& url )
 	// determine the port
 	if (url.port() != 0) port = url.port();
 	else port = 70;
+
+	// connect to the host
+	if (!connectToHost(url.host(), port)) return;
 	
 	if (type == '7' && query.isNull())
 	{
+		closeDescriptor();
 		handleSearch(url.host(), path, port);
 	}
 	else
@@ -77,7 +81,6 @@ void gopher::get(const KURL& url )
 		received.open(IO_WriteOnly);
 		
 		infoMessage(i18n("Connecting to %1...").arg(url.host()));
-		if (!connectToHost(url.host(), port)) return;
 		infoMessage(i18n("%1 contacted. Retrieving data...").arg(url.host()));
 		bytes = 0;
 
