@@ -11,6 +11,7 @@
 #include <kinstance.h>
 #include <klocale.h>
 #include <kmimemagic.h>
+#include <stdlib.h>
 
 #include <qbuffer.h>
 
