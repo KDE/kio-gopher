@@ -93,9 +93,10 @@ void gopher::get(const KURL& url )
 
 void gopher::processDirectory(QCString *received, QString host, QString path)
 {
+	int i, remove;
 	QCString *show = new QCString();
 	QString *info = new QString();
-	if (path == "/") path = "";
+	if (path == "/" || path == "/1") path = "";
 	mimeType("text/html");
 	show -> append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n");
 	show -> append("<html xmlns=\"http://www.w3.org/1999/xhtml\">\n");
@@ -109,12 +110,12 @@ void gopher::processDirectory(QCString *received, QString host, QString path)
 	show -> append("\t<body>\n");
 	show -> append("\t\t<h1>" + host + path + "</h1>\n");
 	show -> append("\t\t<ul>\n");
-	int i = received -> find("\r\n");
+	findLine(received, &i, &remove);
 	while(i != -1)
 	{
 		processDirectoryLine(received -> left(i), show, info);
-		received -> remove(0, i + 2);
-		i = received -> find("\r\n");
+		received -> remove(0, i + remove);
+		findLine(received, &i, &remove);
 	}
 	show -> append("\t\t</ul>\n");
 	if (!info -> isEmpty())
@@ -212,4 +213,32 @@ QString gopher::parsePort(QCString *received)
 	port = received -> left(i);
 	received -> remove(0, i);
 	return port;
+}
+
+void gopher::findLine(QCString *received, int *i, int *remove)
+{
+	// it's not in the rfc but most servers don't follow the spec
+	// find lines ending only in \n and in \r\n
+	int aux, aux2;
+	aux = received -> find("\r\n");
+	aux2 = received -> find("\n");
+
+	if (aux == -1)
+	{
+		*i = aux2;
+		*remove = 1;
+	}
+	else
+	{
+		if (aux2 < aux)
+		{
+			*remove = 1;
+			*i = aux2;
+		}
+		else
+		{
+			*remove = 2;
+			*i = aux;
+		}
+	}
 }
