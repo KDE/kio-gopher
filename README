@@ -4,8 +4,8 @@ This adds support for the gopher protocol to konqueror.
 
 It is still in development.
 
-It has been tested to work with KDE 3.2 Betas.
-KDE 3.1.x is not supported, but it is likely to work.
+It has been tested to work with KDE 3.1 and up.
+It has not been tested on other KDE versions.
 
 Currently it supports most (if not all) of the gopher protocol. 
 
