@@ -45,6 +45,7 @@ class gopher : public KIO::TCPSlaveBase
 		void processDirectoryLine(QCString data, QCString *show);
 		bool seemsDirectory(QCString *received);
 		bool seemsDirectoryLine(QCString received);
+		int parsePort(QCString received);
 		
 		QDict<entryInfo> lastDir;
 };

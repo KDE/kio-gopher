@@ -69,6 +69,7 @@ void gopher::get(const KURL& url )
 {
 	int i, port, bytes;
 	char aux[10241];
+	QString path(url.path());
 	QCString *received = new QCString();
 	
 	if (url.port() != 0) port = url.port();
@@ -78,8 +79,16 @@ void gopher::get(const KURL& url )
 	infoMessage(i18n("%1 contacted. Retrieving data...").arg(url.host()));
 	bytes = 0;
 
-	// if the user is not asking for the server root send what he is asking for
-	if (url.path() != "") write(url.path().latin1(), url.path().length());
+	// if the user is not asking for the server root send what he is asking for	
+	if (path != "")
+	{
+		// remove the first / it is difficult to know if it was part of the selector string
+		// or not, but server that have selector strings with /foo also
+		// return the data with foo and servers with selector string foo don't return 
+		// data with /foo so it's better to remove the first /
+		path.remove(0, 1);
+		write(path.latin1(), path.length());
+	}
 	write("\r\n", 2);
 	while((i = read(aux, 1024)) > 0)
 	{
@@ -121,11 +130,14 @@ void gopher::processDirectory(QCString *received, QString host, QString path)
 
 void gopher::processDirectoryLine(QCString data, QCString *show)
 {
+	// gopher <type><display><tab><selector><tab><server><tab><port><\r><\n>
+	// gopher+ <type><display><tab><selector><tab><server><tab><port><tab><things><\r><\n>
+	// TODO: use parsePort to obtain the port
 	int i;
-	QString c, name, url, server, port;
-	c = data.left(1);
+	QString type, name, url, server, port;
+	type = data.left(1);
 	data.remove(0, 1);
-	if (c == "0" || c == "1")
+	if (type == "0" || type == "1")
 	{
 		i = data.find("\t");
 		name = data.left(i);
@@ -183,18 +195,43 @@ bool gopher::seemsDirectory(QCString *received)
 bool gopher::seemsDirectoryLine(QCString received)
 {
 	bool seems;
-	int i;
+	int i, port;
+
+	// gopher <type><display><tab><selector><tab><server><tab><port><\r><\n>
+	// gopher+ <type><display><tab><selector><tab><server><tab><port><tab><things><\r><\n>
+	
 	i = received.find("\t");
-	received.remove(0, i + 1);
+	received.remove(0, i + 1); //remove type and display
+	
 	i = received.find("\t");
-	received.remove(0, i + 1);
+	received.remove(0, i + 1); //remove selector
+	
 	i = received.find("\t");
-	if (i == -1) seems = false;
+	received.remove(0, i + 1); //remove server
+	
+	port = parsePort(received);
+	
+	if (port == -1 || i == -1) seems = false;
 	else
 	{
 		// do more things
 		seems = true;
 	}
 	return seems;
+}
+
+int gopher::parsePort(QCString received)
+{
+	uint i = 0;
+	bool found = false;
+	QChar c;
+	while (!found && i < received.size())
+	{
+		c = received[i];
+		if (c.isDigit()) i++;
+		else found = true;
+	}
+	if (i == 0) return -1;
+	else return received.left(i).toInt();
 }
 
