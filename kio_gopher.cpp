@@ -72,7 +72,7 @@ void gopher::get(const KURL& url )
 		int i, bytes;
 		char aux[10240];
 		QByteArray *received = new QByteArray();
-		QTextStream stream(*received, IO_WriteOnly);
+		QDataStream stream(*received, IO_WriteOnly);
 		
 		infoMessage(i18n("Connecting to %1...").arg(url.host()));
 		if (!connectToHost(url.host(), port)) return;
@@ -94,7 +94,7 @@ void gopher::get(const KURL& url )
 			infoMessage(i18n("Retrieved %1 bytes from %2...").arg(bytes).arg(url.host()));
 		}
 
-		if (type == '1' || type =='7') processDirectory(new QCString(received -> data()), url.host(), url.path());
+		if (type == '1' || type =='7') processDirectory(new QCString(received -> data(), bytes + 1), url.host(), url.path());
 		else
 		{
 			KMimeMagicResult *result = KMimeMagic::self() -> findBufferType(*received);
@@ -277,6 +277,7 @@ void gopher::handleSearch(QString host, QString path, int port)
 	show -> append("\t</head>\n");
 	show -> append("\t<body>\n");
 	show -> append("\t\t<h1>" + host + path + "</h1>\n");
+	show -> append("\t\t" + i18n("Enter a search term:") + "<br />\n");
 	show -> append("\t\t<input id=\"what\" type=\"text\">\n");
 	show -> append("\t\t<input type=\"button\" value=\"" + i18n("Search") + "\" onClick=\"search()\">\n");
 	show -> append("\t</body>\n");
