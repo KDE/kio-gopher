@@ -12,6 +12,8 @@
 #include <klocale.h>
 #include <kmimemagic.h>
 
+#include <qbuffer.h>
+
 #include "kio_gopher.h"
 
 using namespace KIO;
@@ -71,8 +73,8 @@ void gopher::get(const KURL& url )
 	{
 		int i, bytes;
 		char aux[10240];
-		QByteArray *received = new QByteArray();
-		QDataStream stream(*received, IO_WriteOnly);
+		QBuffer received;
+		received.open(IO_WriteOnly);
 		
 		infoMessage(i18n("Connecting to %1...").arg(url.host()));
 		if (!connectToHost(url.host(), port)) return;
@@ -89,20 +91,19 @@ void gopher::get(const KURL& url )
 		while((i = read(aux, 10240)) > 0)
 		{
 			bytes += i;
-			stream.writeRawBytes(aux, i);
+			received.writeBlock(aux, i);
 			processedSize(bytes);
 			infoMessage(i18n("Retrieved %1 bytes from %2...").arg(bytes).arg(url.host()));
 		}
 
-		if (type == '1' || type =='7') processDirectory(new QCString(received -> data(), bytes + 1), url.host(), url.path());
+		if (type == '1' || type =='7') processDirectory(new QCString(received.buffer().data(), bytes + 1), url.host(), url.path());
 		else
 		{
-			KMimeMagicResult *result = KMimeMagic::self() -> findBufferType(*received);
+			KMimeMagicResult *result = KMimeMagic::self() -> findBufferType(received.buffer());
 			mimeType(result->mimeType());
-			data(*received);
+			data(received.buffer());
 		}
 		closeDescriptor();
-		delete received;
 	}
 	finished();
 }
