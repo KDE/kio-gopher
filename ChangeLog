@@ -1,0 +1,8 @@
+20040102:
+	- Support for search engines, type '7'
+	- Better information support, type 'i'
+	- Some code rework
+	- Change to ISO date numbering
+
+19122003:
+	- Initial Release
