@@ -67,7 +67,7 @@ void gopher::setHost(const QString &/*host*/, int /*port*/, const QString &/*use
 void gopher::get(const KURL& url )
 {
 	int i, port, bytes;
-	char aux[1024];
+	char aux[10240];
 	QString path(url.path());
 	QByteArray *received = new QByteArray();
 	QTextStream ts(*received, IO_WriteOnly);
@@ -90,13 +90,10 @@ void gopher::get(const KURL& url )
 		write(path.latin1(), path.length());
 	}
 	write("\r\n", 2);
-	while((i = read(aux, 1024)) > 0)
+	while((i = read(aux, 10240)) > 0)
 	{
 		bytes += i;
-		for(int j = 0; j < i; j++)
-		{
-			ts << aux[j];
-		}
+		ts.writeRawBytes(aux, i);
 		processedSize(bytes);
 		infoMessage(i18n("Retrieved %1 bytes from %2...").arg(bytes).arg(url.host()));
 	}
@@ -105,7 +102,7 @@ void gopher::get(const KURL& url )
 	else
 	{
 		// we pass all the received data to kmimetype and hope we get the good mimetype
-		// hoping konqueror will know how to handle it
+		// hoping konqueror will know how to handle it		
 		mimeType(KMimeType::findByContent(*received)->name());
 		data(*received);
 	}
@@ -116,10 +113,11 @@ void gopher::get(const KURL& url )
 void gopher::processDirectory(QCString *received, QString host, QString path)
 {
 	QCString *show = new QCString();
+	if (path == "/") path = "";
 	mimeType("text/html");
-	if (path != "" && path.left(1) != "/") path.prepend("/");
-	show -> append("<html>\n\t<head>\n\t\t<title>" + host + path + "</title>\n\t</head>\n");
-	show -> append("\t<body>\n\t\t<h1>" + host + path + "</h1>\n");
+	show -> append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n");
+	show -> append("<html xmlns=\"http://www.w3.org/1999/xhtml\">\n\t<head>\n\t\t<title>" + host + path + "</title>\n\t</head>\n");
+	show -> append("\t<body>\n\t\t<h1>" + host + path + "</h1>\n\t\t<ul>\n");
 	int i = received -> find("\r\n");
 	while(i != -1)
 	{
@@ -127,7 +125,7 @@ void gopher::processDirectory(QCString *received, QString host, QString path)
 		received -> remove(0, i + 2);
 		i = received -> find("\r\n");
 	}
-	show -> append("\t</body>\n</html>");
+	show -> append("\t\t</ul>\n\t</body>\n</html>");
 	data(*show);	
 }
 
@@ -140,11 +138,12 @@ void gopher::processDirectoryLine(QCString data, QCString *show)
 	QString type, name, url, server, port;
 	type = data.left(1);
 	data.remove(0, 1);
+	// Right now don't use types for nothing
 	// those are the standard gopher types
-	if (type == "0" || type == "1" || type == "2" || type == "4" || type == "5" 
-		|| type == "6" || type == "7" || type == "8" || type == "9" || type == "+" 
-		|| type == "T" || type == "g" || type == "I")
-	{
+	//if (type == "0" || type == "1" || type == "2" || type == "4" || type == "5" 
+	//	|| type == "6" || type == "7" || type == "8" || type == "9" || type == "+" 
+	//	|| type == "T" || type == "g" || type == "I")
+//	{
 		i = data.find("\t");
 		name = data.left(i);
 		data.remove(0, i + 1);
@@ -159,7 +158,7 @@ void gopher::processDirectoryLine(QCString data, QCString *show)
 		data.remove(0, i + 1);
 		
 		if (url.left(1) != "/") url.prepend("/");
-		show -> append("\t\t<a href=\"gopher://");
+		show -> append("\t\t\t<li>\n\t\t\t\t<a href=\"gopher://");
 		show -> append(server);
 		if (port != "70")
 		{
@@ -169,9 +168,8 @@ void gopher::processDirectoryLine(QCString data, QCString *show)
 		show -> append(url);
 		show -> append("\">");
 		show -> append(name);
-		show -> append("</a>\n");
-		show -> append("<br>\n");
-	}
+		show -> append("</a>\n\t\t\t</li>\n");
+//	}
 }
 
 bool gopher::seemsDirectory(QCString *received)
