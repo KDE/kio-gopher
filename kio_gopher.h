@@ -11,40 +11,19 @@
 #ifndef __kio_gopher_h__
 #define __kio_gopher_h__
 
-#include <qcstring.h>
-#include <qdict.h>
-#include <qstring.h>
-
-#include <kurl.h>
 #include <kio/tcpslavebase.h>
-
-/*class entryInfo
-{
-	public:
-		entryInfo(QString display, QString selector, QString host, int port, bool isPlus);
-		
-	private:
-		QString m_display;
-		QString m_selector;
-		QString m_host;
-		int m_port;
-		bool m_isPlus;
-};*/
 
 class gopher : public KIO::TCPSlaveBase
 {
 	public:
 		gopher(const QCString &pool_socket, const QCString &app_socket);
-		virtual ~gopher();
 
-		virtual void get(const KURL& url);
+		void get(const KURL& url);
 
 	private:
 		void processDirectory(QCString *received, QString host, QString path);
 		void processDirectoryLine(QCString data, QCString *show, QString *info);
 		QString parsePort(QCString *received);
-		
-		//QDict<entryInfo> lastDir;
 };
 
 #endif

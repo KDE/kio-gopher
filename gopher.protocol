@@ -2,7 +2,7 @@
 exec=kio_gopher
 protocol=gopher
 input=none
-output=stream
+output=filesystem
 reading=true
-defaultMimetype=text/html
+defaultMimetype=application/octet-stream
 determineMimetypeFromExtension=false

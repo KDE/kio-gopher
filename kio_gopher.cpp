@@ -8,13 +8,9 @@
  **   (at your option) any later version.                                   *
  ****************************************************************************/
 
-#include <kiconloader.h>
 #include <kinstance.h>
-#include <kglobal.h>
 #include <klocale.h>
-#include <kmimetype.h>
-
-#include <stdlib.h>
+#include <kmimemagic.h>
 
 #include "kio_gopher.h"
 
@@ -38,25 +34,9 @@ extern "C"
 	}
 }
 
-/* entryInfo */
-
-/*entryInfo::entryInfo(QString display, QString selector, QString host, int port, bool isPlus)
-{
-	m_display = display;
-	m_selector = selector;
-	m_host = host;
-	m_port = port;
-	m_isPlus = isPlus;
-}*/
-
 /* gopher */
 
 gopher::gopher(const QCString &pool_socket, const QCString &app_socket) : TCPSlaveBase(70, "gopher", pool_socket, app_socket)
-{
-}
-
-
-gopher::~gopher()
 {
 }
 
@@ -75,7 +55,7 @@ void gopher::get(const KURL& url )
 	QChar type;
 	QString path(url.path() + url.query());
 	QByteArray *received = new QByteArray();
-	QTextStream ts(*received, IO_WriteOnly);
+	QTextStream stream(*received, IO_WriteOnly);
 	
 	if (url.port() != 0) port = url.port();
 	else port = 70;
@@ -96,16 +76,15 @@ void gopher::get(const KURL& url )
 	while((i = read(aux, 10240)) > 0)
 	{
 		bytes += i;
-		ts.writeRawBytes(aux, i);
+		stream.writeRawBytes(aux, i);
 		processedSize(bytes);
 		infoMessage(i18n("Retrieved %1 bytes from %2...").arg(bytes).arg(url.host()));
 	}
 	if (type == '1') processDirectory(new QCString(received -> data()), url.host(), url.path());
 	else
 	{
-		// we pass all the received data to kmimetype and hope we get the good mimetype
-		// hoping konqueror will know how to handle it		
-		mimeType(KMimeType::findByContent(*received)->name());
+		KMimeMagicResult *result = KMimeMagic::self() -> findBufferType(*received);
+		mimeType(result->mimeType());
 		data(*received);
 	}
 	closeDescriptor();
@@ -131,7 +110,7 @@ void gopher::processDirectory(QCString *received, QString host, QString path)
 	show -> append("\t\t</ul>\n");
 	if (!info -> isEmpty()) show -> append("\t\t<table width=\"75%\" class=\"information\">\n\t\t\t<caption>" + i18n("Information") + "</caption>\n\t\t\t<tr>\n\t\t\t\t<td>" + *info + "</td>\n\t\t\t</tr>\n\t\t</table>\n");
 	show -> append("\t</body>\n</html>");
-	data(*show);	
+	data(*show);
 }
 
 void gopher::processDirectoryLine(QCString data, QCString *show, QString *info)

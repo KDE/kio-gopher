@@ -1,3 +1,1 @@
 gopher://gopher.floodgap.com/1/world/search-hosts?za is not shown correctly
-
-Because of the patch that solved the problem with directories named .txt, now files named .gz and such are not recognised as that and are shown as "text" on konqy :-/
