@@ -113,7 +113,7 @@ void gopher::get(const KURL& url )
 	finished();
 }
 
-void gopher::processDirectory(QCString *received, QString host, QString path)
+void gopher::processDirectory(QCString *received, const QString &host, QString path)
 {
 	int i, remove;
 	QCString *show = new QCString();
@@ -263,7 +263,7 @@ void gopher::findLine(QCString *received, int *i, int *remove)
 	}
 }
 
-void gopher::handleSearch(QString host, QString path, int port)
+void gopher::handleSearch(const QString &host, const QString &path, int port)
 {
 	QCString *show = new QCString();
 	QString sPort;
