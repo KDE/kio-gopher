@@ -8,7 +8,9 @@
  **   (at your option) any later version.                                   *
  ****************************************************************************/
 
+#include <kiconloader.h>
 #include <kinstance.h>
+#include <kglobal.h>
 #include <klocale.h>
 #include <kmimetype.h>
 
@@ -112,12 +114,14 @@ void gopher::get(const KURL& url )
 
 void gopher::processDirectory(QCString *received, QString host, QString path)
 {
+	// TODO Make the <li> icon thing work
 	QCString *show = new QCString();
-	QString *info = new QString();
+	QString folderPath, *info = new QString();
+	folderPath = KGlobal::iconLoader() -> iconPath("folder", 0);
 	if (path == "/") path = "";
 	mimeType("text/html");
 	show -> append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n");
-	show -> append("<html xmlns=\"http://www.w3.org/1999/xhtml\">\n\t<head>\n\t\t<title>" + host + path + "</title>\n\t\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\" />\n\t</head>\n");
+	show -> append("<html xmlns=\"http://www.w3.org/1999/xhtml\">\n\t<head>\n\t\t<title>" + host + path + "</title>\n\t\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\" />\n\t\t<style type=\"text/css\">\n\t\t\t.information{ border : 1px solid #000000; text-align : center; background-color : #abcdef; }\n\t\t\t.folder{ list-style-image: url(" + folderPath + ") }\n\t\t</style>\n\t</head>\n");
 	show -> append("\t<body>\n\t\t<h1>" + host + path + "</h1>\n\t\t<ul>\n");
 	int i = received -> find("\r\n");
 	while(i != -1)
@@ -127,7 +131,7 @@ void gopher::processDirectory(QCString *received, QString host, QString path)
 		i = received -> find("\r\n");
 	}
 	show -> append("\t\t</ul>\n");
-	if (!info -> isEmpty()) show -> append("\t\t<table width=\"75%\" style=\"border : 1px solid #000000; text-align  : center; background-color: #abcdef;\">\n\t\t\t<caption>" + i18n("Information") + "</caption>\n\t\t\t<tr>\n\t\t\t\t<td>" + *info + "</td>\n\t\t\t</tr>\n\t\t</table>\n");
+	if (!info -> isEmpty()) show -> append("\t\t<table width=\"75%\" class=\"information\">\n\t\t\t<caption>" + i18n("Information") + "</caption>\n\t\t\t<tr>\n\t\t\t\t<td>" + *info + "</td>\n\t\t\t</tr>\n\t\t</table>\n");
 	show -> append("\t</body>\n</html>");
 	data(*show);	
 }
@@ -136,7 +140,6 @@ void gopher::processDirectoryLine(QCString data, QCString *show, QString *info)
 {
 	// gopher <type><display><tab><selector><tab><server><tab><port><\r><\n>
 	// gopher+ <type><display><tab><selector><tab><server><tab><port><tab><things><\r><\n>
-	// TODO: use parsePort to obtain the port
 	int i;
 	QString type, name, url, server, port;
 	type = data.left(1);
@@ -180,7 +183,9 @@ void gopher::processDirectoryLine(QCString data, QCString *show, QString *info)
 		//  T   Item points to a text-based tn3270 session.
 		//  g   Item is a GIF format graphics file.
 		//  I   Item is some kind of image file.  Client decides how to display.
-		show -> append("\t\t\t<li>\n\t\t\t\t<a href=\"gopher://");
+		if (type == "1") show -> append("\t\t\t<li class=\"folder\">\n\t\t\t\t<a href=\"gopher://");
+		else show -> append("\t\t\t<li>\n\t\t\t\t<a href=\"gopher://");
+
 		show -> append(server);
 		if (port != "70")
 		{
