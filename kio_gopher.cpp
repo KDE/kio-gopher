@@ -18,8 +18,6 @@
 
 using namespace KIO;
 
-static const QString defaultRefreshRate = "60";
-
 extern "C"
 {
 	int kdemain( int argc, char **argv )
@@ -69,10 +67,10 @@ void gopher::setHost(const QString &/*host*/, int /*port*/, const QString &/*use
 void gopher::get(const KURL& url )
 {
 	int i, port, bytes;
-	char aux[1025];
+	char aux[1024];
 	QString path(url.path());
-	// TODO: QCString sucks, it does not work when receiving binary data 
-	QCString *received = new QCString();
+	QByteArray *received = new QByteArray();
+	QTextStream ts(*received, IO_WriteOnly);
 	
 	if (url.port() != 0) port = url.port();
 	else port = 70;
@@ -95,12 +93,15 @@ void gopher::get(const KURL& url )
 	while((i = read(aux, 1024)) > 0)
 	{
 		bytes += i;
-		aux[i] = '\0';
-		received -> append(aux);
+		for(int j = 0; j < i; j++)
+		{
+			ts << aux[j];
+		}
 		processedSize(bytes);
 		infoMessage(i18n("Retrieved %1 bytes from %2...").arg(bytes).arg(url.host()));
 	}
-	if (seemsDirectory(received)) processDirectory(received, url.host(), url.path());
+	QCString *receivedString = new QCString(received->data());
+	if (seemsDirectory(receivedString)) processDirectory(receivedString, url.host(), url.path());
 	else
 	{
 		// we pass all the received data to kmimetype and hope we get the good mimetype
@@ -109,7 +110,7 @@ void gopher::get(const KURL& url )
 		data(*received);
 	}
 	closeDescriptor();
-    finished();
+	finished();
 }
 
 void gopher::processDirectory(QCString *received, QString host, QString path)
