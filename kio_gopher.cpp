@@ -50,46 +50,61 @@ void gopher::get(const KURL& url )
 	//  <gophertype><selector>
 	//  <gophertype><selector>%09<search>
 	//  <gophertype><selector>%09<search>%09<gopher+_string>
-	int i, port, bytes;
-	char aux[10240];
+	int port;
 	QChar type;
-	QString path(url.path() + url.query());
-	QByteArray *received = new QByteArray();
-	QTextStream stream(*received, IO_WriteOnly);
+	QString path(url.path());
+	QString query(url.query());
+
+	// determine the type
+	if (path != "/" && path != "") type = path[1];
+	else type = '1';
 	
+	// determine the port
 	if (url.port() != 0) port = url.port();
 	else port = 70;
-	infoMessage(i18n("Connecting to %1...").arg(url.host()));
-	if (!connectToHost(url.host(), port)) return;
-	infoMessage(i18n("%1 contacted. Retrieving data...").arg(url.host()));
-	bytes = 0;
-
-	// if the user is not asking for the server root send what he is asking for	
-	if (path != "/" && path != "" && path != "/1")
+	
+	if (type == '7' && query.isNull())
 	{
-		type = path[1];
-		path.remove(0, 2);
-		write(path.latin1(), path.length());
+		handleSearch(url.host(), path, port);
 	}
-	else type = '1';
-	write("\r\n", 2);
-	while((i = read(aux, 10240)) > 0)
-	{
-		bytes += i;
-		stream.writeRawBytes(aux, i);
-		processedSize(bytes);
-		infoMessage(i18n("Retrieved %1 bytes from %2...").arg(bytes).arg(url.host()));
-	}
-	if (type == '1') processDirectory(new QCString(received -> data()), url.host(), url.path());
 	else
 	{
-		KMimeMagicResult *result = KMimeMagic::self() -> findBufferType(*received);
-		mimeType(result->mimeType());
-		data(*received);
+		int i, bytes;
+		char aux[10240];
+		QByteArray *received = new QByteArray();
+		QTextStream stream(*received, IO_WriteOnly);
+		
+		infoMessage(i18n("Connecting to %1...").arg(url.host()));
+		if (!connectToHost(url.host(), port)) return;
+		infoMessage(i18n("%1 contacted. Retrieving data...").arg(url.host()));
+		bytes = 0;
+
+		// send the selector
+		path.remove(0, 2);
+		write(path.latin1(), path.length());
+		write(query.latin1(), query.length());
+		write("\r\n", 2);
+
+		// read the data
+		while((i = read(aux, 10240)) > 0)
+		{
+			bytes += i;
+			stream.writeRawBytes(aux, i);
+			processedSize(bytes);
+			infoMessage(i18n("Retrieved %1 bytes from %2...").arg(bytes).arg(url.host()));
+		}
+
+		if (type == '1' || type =='7') processDirectory(new QCString(received -> data()), url.host(), url.path());
+		else
+		{
+			KMimeMagicResult *result = KMimeMagic::self() -> findBufferType(*received);
+			mimeType(result->mimeType());
+			data(*received);
+		}
+		closeDescriptor();
+		delete received;
 	}
-	closeDescriptor();
 	finished();
-	delete received;
 }
 
 void gopher::processDirectory(QCString *received, QString host, QString path)
@@ -240,4 +255,32 @@ void gopher::findLine(QCString *received, int *i, int *remove)
 			*i = aux;
 		}
 	}
+}
+
+void gopher::handleSearch(QString host, QString path, int port)
+{
+	QCString *show = new QCString();
+	QString sPort;
+	if (port != 70) sPort = ":" + QString::number(port);
+	mimeType("text/html");
+	show -> append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n");
+	show -> append("<html xmlns=\"http://www.w3.org/1999/xhtml\">\n");
+	show -> append("\t<head>\n");
+	show -> append("\t\t<title>" + host + path + "</title>\n");
+	show -> append("\t\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\" />\n");
+	show -> append("\t\t<script type=\"text/javascript\">\n");
+	show -> append("\t\t\tfunction search()\n");
+	show -> append("\t\t\t{\n");
+	show -> append("\t\t\t\tdocument.location = 'gopher://" + host  + sPort + path + "?' + document.getElementById('what').value;\n");
+	show -> append("\t\t\t}\n");
+	show -> append("\t\t</script>\n");
+	show -> append("\t</head>\n");
+	show -> append("\t<body>\n");
+	show -> append("\t\t<h1>" + host + path + "</h1>\n");
+	show -> append("\t\t<input id=\"what\" type=\"text\">\n");
+	show -> append("\t\t<input type=\"button\" value=\"" + i18n("Search") + "\" onClick=\"search()\">\n");
+	show -> append("\t</body>\n");
+	show -> append("</html>\n");
+	data(*show);
+	delete show;
 }
