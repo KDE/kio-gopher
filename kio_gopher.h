@@ -37,7 +37,6 @@ class gopher : public KIO::TCPSlaveBase
 		gopher(const QCString &pool_socket, const QCString &app_socket);
 		virtual ~gopher();
 
-		virtual void setHost (const QString &host, int port, const QString &user, const QString &pass);
 		virtual void get(const KURL& url);
 
 	private:

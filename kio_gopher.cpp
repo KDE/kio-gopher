@@ -58,12 +58,6 @@ gopher::~gopher()
 {
 }
 
-void gopher::setHost(const QString &/*host*/, int /*port*/, const QString &/*user*/, const QString &/*pass*/)
-{
-	// don't do anything but necessary to make it listen for gopher:// instead of gopher:/
-	// i think
-}
-
 void gopher::get(const KURL& url )
 {
 	int i, port, bytes;
@@ -82,10 +76,10 @@ void gopher::get(const KURL& url )
 	// if the user is not asking for the server root send what he is asking for	
 	if (path != "")
 	{
-		// remove the first / it is difficult to know if it was part of the selector string
-		// or not, but server that have selector strings with /foo also
-		// return the data with foo and servers with selector string foo don't return 
-		// data with /foo so it's better to remove the first /
+		// ARgggggggg, how to know if the server wants the '/' or not???
+		// gopher://ol.freeshell.org/sdf/faq/ 
+		// does not work if you don't send the '/' but some other 
+		// servers don't want the '/' :-S
 		path.remove(0, 1);
 		write(path.latin1(), path.length());
 	}
