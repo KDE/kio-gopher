@@ -18,7 +18,7 @@
 #include <kurl.h>
 #include <kio/tcpslavebase.h>
 
-class entryInfo
+/*class entryInfo
 {
 	public:
 		entryInfo(QString display, QString selector, QString host, int port, bool isPlus);
@@ -29,7 +29,7 @@ class entryInfo
 		QString m_host;
 		int m_port;
 		bool m_isPlus;
-};
+};*/
 
 class gopher : public KIO::TCPSlaveBase
 {
@@ -42,11 +42,9 @@ class gopher : public KIO::TCPSlaveBase
 	private:
 		void processDirectory(QCString *received, QString host, QString path);
 		void processDirectoryLine(QCString data, QCString *show, QString *info);
-		bool seemsDirectory(QCString *received);
-		bool seemsDirectoryLine(QCString received);
-		int parsePort(QCString received);
+		QString parsePort(QCString *received);
 		
-		QDict<entryInfo> lastDir;
+		//QDict<entryInfo> lastDir;
 };
 
 #endif
