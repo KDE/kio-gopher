@@ -1,0 +1,7 @@
+[Protocol]
+exec=kio_gopher
+protocol=gopher
+input=none
+output=stream
+reading=true
+defaultMimetype=text/html
