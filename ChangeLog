@@ -1,3 +1,7 @@
+20040214:
+	- Compile fixes on some platforms
+	- i18n updates
+
 20040102:
 	- Support for search engines, type '7'
 	- Better information support, type 'i'
