@@ -22,8 +22,8 @@ class gopher : public KIO::TCPSlaveBase
 
 	private:
 		void processDirectory(QCString *received, const QString &host, QString path);
-		void processDirectoryLine(QCString data, QCString &show, QString &info);
-		QString parsePort(QCString *received);
+		void processDirectoryLine(QCString data, QCString &show, QCString &info);
+		QCString parsePort(QCString *received);
 		void findLine(QCString *received, int *i, int *remove);
 		void handleSearch(const QString &host, const QString &path, int port);
 };

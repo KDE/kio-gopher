@@ -117,20 +117,26 @@ void gopher::processDirectory(QCString *received, const QString &host, QString p
 {
 	int i, remove;
 	QCString show;
-	QString info;
+	QCString info;
 	if (path == "/" || path == "/1") path = "";
 	mimeType("text/html");
 	show.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n");
 	show.append("<html xmlns=\"http://www.w3.org/1999/xhtml\">\n");
 	show.append("\t<head>\n");
-	show.append("\t\t<title>" + host + path + "</title>\n");
-	show.append("\t\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\" />\n");
+	show.append("\t\t<title>");
+	show.append(host.utf8());
+	show.append(path.utf8());
+	show.append("</title>\n");
+	show.append("\t\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n");
 	show.append("\t\t<style type=\"text/css\">\n");
 	show.append("\t\t\t.info{ font-size : small; }\n");
 	show.append("\t\t</style>\n");
 	show.append("\t</head>\n");
 	show.append("\t<body>\n");
-	show.append("\t\t<h1>" + host + path + "</h1>\n");
+	show.append("\t\t<h1>");
+	show.append(host.utf8());
+	show.append(path.utf8());
+	show.append("</h1>\n");
 	findLine(received, &i, &remove);
 	while(i != -1)
 	{
@@ -144,12 +150,12 @@ void gopher::processDirectory(QCString *received, const QString &host, QString p
 	delete received;
 }
 
-void gopher::processDirectoryLine(QCString data, QCString &show, QString &info)
+void gopher::processDirectoryLine(QCString data, QCString &show, QCString &info)
 {
 	// gopher <type><display><tab><selector><tab><server><tab><port><\r><\n>
 	// gopher+ <type><display><tab><selector><tab><server><tab><port><tab><things><\r><\n>
 	int i;
-	QString type, name, url, server, port;
+	QCString type, name, url, server, port;
 	
 	type = data.left(1);
 	data.remove(0, 1);
@@ -216,10 +222,10 @@ void gopher::processDirectoryLine(QCString data, QCString &show, QString &info)
 	}
 }
 
-QString gopher::parsePort(QCString *received)
+QCString gopher::parsePort(QCString *received)
 {
 	uint i = 0;
-	QString port;
+	QCString port;
 	bool found = false;
 	QChar c;
 	while (!found && i < received -> size())
@@ -270,20 +276,34 @@ void gopher::handleSearch(const QString &host, const QString &path, int port)
 	show.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n");
 	show.append("<html xmlns=\"http://www.w3.org/1999/xhtml\">\n");
 	show.append("\t<head>\n");
-	show.append("\t\t<title>" + host + path + "</title>\n");
-	show.append("\t\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\" />\n");
+	show.append("\t\t<title>");
+	show.append(host.utf8());
+	show.append(path.utf8());
+	show.append("</title>\n");
+	show.append("\t\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n");
 	show.append("\t\t<script type=\"text/javascript\">\n");
 	show.append("\t\t\tfunction search()\n");
 	show.append("\t\t\t{\n");
-	show.append("\t\t\t\tdocument.location = 'gopher://" + host  + sPort + path + "?' + document.getElementById('what').value;\n");
+	show.append("\t\t\t\tdocument.location = 'gopher://");
+	show.append(host.utf8());
+       	show.append(sPort.utf8());
+	show.append(path.utf8());
+	show.append("?' + document.getElementById('what').value;\n");
 	show.append("\t\t\t}\n");
 	show.append("\t\t</script>\n");
 	show.append("\t</head>\n");
 	show.append("\t<body>\n");
-	show.append("\t\t<h1>" + host + path + "</h1>\n");
-	show.append("\t\t" + i18n("Enter a search term:") + "<br />\n");
+	show.append("\t\t<h1>");
+	show.append(host.utf8());
+	show.append(path.utf8());
+	show.append("</h1>\n");
+	show.append("\t\t");
+	show.append(i18n("Enter a search term:").utf8());
+	show.append("<br />\n");
 	show.append("\t\t<input id=\"what\" type=\"text\">\n");
-	show.append("\t\t<input type=\"button\" value=\"" + i18n("Search") + "\" onClick=\"search()\">\n");
+	show.append("\t\t<input type=\"button\" value=\"");
+	show.append(i18n("Search").utf8());
+	show.append("\" onClick=\"search()\">\n");
 	show.append("\t</body>\n");
 	show.append("</html>\n");
 	data(show);
