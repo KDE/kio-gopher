@@ -1,4 +1,12 @@
 
+if (NOT KDE4_FOUND)
+	find_package(KDE4 REQUIRED)
+	include(KDE4Defaults)
+	add_definitions (${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
+	include_directories(${KDE4_INCLUDES})
+endif (NOT KDE4_FOUND)
+
+
 set(kio_man_PART_SRCS kio_gopher.cpp)
 
 kde4_add_plugin(kio_gopher ${kio_man_PART_SRCS})
