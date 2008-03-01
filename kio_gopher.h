@@ -16,15 +16,15 @@
 class gopher : public KIO::TCPSlaveBase
 {
 	public:
-		gopher(const QCString &pool_socket, const QCString &app_socket);
+		gopher(const QByteArray &pool_socket, const QByteArray &app_socket);
 
-		void get(const KURL& url);
+		void get(const KUrl& url);
 
 	private:
-		void processDirectory(QCString *received, const QString &host, QString path);
-		void processDirectoryLine(QCString data, QCString &show, QCString &info);
-		QCString parsePort(QCString *received);
-		void findLine(QCString *received, int *i, int *remove);
+		void processDirectory(QByteArray *received, const QString &host, const QString &path);
+		void processDirectoryLine(QByteArray data, QByteArray &show, QByteArray &info);
+		QByteArray parsePort(QByteArray *received);
+		void findLine(QByteArray *received, int *i, int *remove);
 		void handleSearch(const QString &host, const QString &path, int port);
 };
 
