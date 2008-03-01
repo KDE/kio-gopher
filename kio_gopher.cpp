@@ -141,7 +141,6 @@ void gopher::processDirectory(QByteArray *received, const QString &host, const Q
 	show.append(pathToShow.toUtf8());
 	show.append("</h1>\n");
 	findLine(received, &i, &remove);
-kDebug()<< "UEEEEEEEEEEEEEEEEEEE" << received->length() << i << remove;
 	while(i != -1)
 	{
 		processDirectoryLine(received -> left(i), show, info);
