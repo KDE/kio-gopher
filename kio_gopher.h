@@ -12,6 +12,7 @@
 #define __kio_gopher_h__
 
 #include <kio/tcpslavebase.h>
+#include <kiconloader.h>
 
 class gopher : public KIO::TCPSlaveBase
 {
@@ -26,6 +27,9 @@ class gopher : public KIO::TCPSlaveBase
 		QByteArray parsePort(QByteArray *received);
 		void findLine(QByteArray *received, int *i, int *remove);
 		void handleSearch(const QString &host, const QString &path, int port);
+		void addIcon(const QString &type, const QByteArray &url, QByteArray &show);
+		
+		KIconLoader m_iconLoader;
 };
 
 #endif

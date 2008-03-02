@@ -8,12 +8,14 @@
  *   (at your option) any later version.                                    *
  ****************************************************************************/
 
+#include <kcodecs.h>
 #include <kcomponentdata.h>
 #include <kdebug.h>
 #include <klocale.h>
 #include <kmimetype.h>
 
 #include <qbuffer.h>
+#include <qfile.h>
 
 #include "kio_gopher.h"
 
@@ -218,7 +220,7 @@ void gopher::processDirectoryLine(QByteArray data, QByteArray &show, QByteArray 
 		}
 		show.append("/" + type + url);
 		show.append("\">");
-		show.append("- ");
+		addIcon(type, url, show);
 		show.append(name);
 		show.append("</a><br />\n");
 		show.append("\t\t\t</div>");
@@ -289,7 +291,7 @@ void gopher::handleSearch(const QString &host, const QString &path, int port)
 	show.append("\t\t\t{\n");
 	show.append("\t\t\t\tdocument.location = 'gopher://");
 	show.append(host.toUtf8());
-       	show.append(sPort.toUtf8());
+	show.append(sPort.toUtf8());
 	show.append(path.toUtf8());
 	show.append("?' + document.getElementById('what').value;\n");
 	show.append("\t\t\t}\n");
@@ -310,4 +312,25 @@ void gopher::handleSearch(const QString &host, const QString &path, int port)
 	show.append("\t</body>\n");
 	show.append("</html>\n");
 	data(show);
+}
+
+void gopher::addIcon(const QString &type, const QByteArray &url, QByteArray &show)
+{
+	QString icon;
+	if (type == "1") icon = "inode-directory.png";
+	else if (type == "3") icon = "dialog-error.png";
+	else if (type == "7") icon = "system-search.png";
+	else if (type == "g") icon = "image-gif.png";
+	else if (type == "I") icon = "image-x-generic.png";
+	else
+	{
+		KMimeType::Ptr mime = KMimeType::findByUrl(KUrl(url), 0, false, true);
+		icon = mime->iconName();
+	}
+	QFile file(m_iconLoader.iconPath(icon, -16));
+	file.open(QIODevice::ReadOnly);
+	QByteArray ba = file.readAll();
+	show.append("<img width=\"16\" height=\"16\" src=\"data:image/png;base64,");
+	show.append(KCodecs::base64Encode(ba));
+	show.append("\" /> ");
 }
