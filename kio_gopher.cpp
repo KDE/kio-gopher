@@ -8,6 +8,8 @@
  *   (at your option) any later version.                                    *
  ****************************************************************************/
 
+#include "kio_gopher.h"
+
 #include <kcodecs.h>
 #include <kcomponentdata.h>
 #include <kdebug.h>
@@ -16,8 +18,6 @@
 
 #include <qbuffer.h>
 #include <qfile.h>
-
-#include "kio_gopher.h"
 
 using namespace KIO;
 
@@ -155,12 +155,13 @@ void gopher::processDirectory(QByteArray *received, const QString &host, const Q
 	delete received;
 }
 
-void gopher::processDirectoryLine(QByteArray data, QByteArray &show, QByteArray &info)
+void gopher::processDirectoryLine(const QByteArray &d, QByteArray &show, QByteArray &info)
 {
 	// gopher <type><display><tab><selector><tab><server><tab><port><\r><\n>
 	// gopher+ <type><display><tab><selector><tab><server><tab><port><tab><things><\r><\n>
 	int i;
 	QByteArray type, name, url, server, port;
+	QByteArray data = d;
 	
 	type = data.left(1);
 	data.remove(0, 1);
@@ -189,7 +190,7 @@ void gopher::processDirectoryLine(QByteArray data, QByteArray &show, QByteArray 
 		if (!info.isEmpty())
 		{
 			show.append("\t\t<div class=\"info\">\n");
-			show.append("\t\t\t" + info + "\n");
+			show.append("\t\t\t" + info + '\n');
 			show.append("\t\t</div>\n");
 			info = "";
 		}
@@ -218,7 +219,7 @@ void gopher::processDirectoryLine(QByteArray data, QByteArray &show, QByteArray 
 			show.append(":");
 			show.append(port);
 		}
-		show.append("/" + type + url);
+		show.append('/' + type + url);
 		show.append("\">");
 		addIcon(type, url, show);
 		show.append(name);
@@ -276,7 +277,7 @@ void gopher::handleSearch(const QString &host, const QString &path, int port)
 {
 	QByteArray show;
 	QString sPort;
-	if (port != 70) sPort = ":" + QString::number(port);
+	if (port != 70) sPort = ':' + QString::number(port);
 	mimeType("text/html");
 	show.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n");
 	show.append("<html xmlns=\"http://www.w3.org/1999/xhtml\">\n");
@@ -307,7 +308,7 @@ void gopher::handleSearch(const QString &host, const QString &path, int port)
 	show.append("<br />\n");
 	show.append("\t\t<input id=\"what\" type=\"text\">\n");
 	show.append("\t\t<input type=\"button\" value=\"");
-	show.append(i18n("Search").toUtf8());
+	show.append(i18nc("Text on a search button, like at a search engine", "Search").toUtf8());
 	show.append("\" onClick=\"search()\">\n");
 	show.append("\t</body>\n");
 	show.append("</html>\n");
