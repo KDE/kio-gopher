@@ -11,4 +11,14 @@ Currently it supports most (if not all) of the gopher protocol.
 
 Support for gopher+ protocol is planned.
 
+Protocol Documentation:
+ Gopher:
+  http://www.faqs.org/rfcs/rfc1436.html
+
+ Gopher+:
+  http://iubio.bio.indiana.edu/soft/util/gopher/Gopher+-spec.text
+
+ Gopher URL:
+  http://www.cotse.com/CIE/RFC/1738/16.htm
+
 Albert Astals Cid tsdgeos DOT terra AT es
