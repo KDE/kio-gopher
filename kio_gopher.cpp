@@ -216,9 +216,11 @@ void gopher::processDirectoryLine(const QByteArray &d, QByteArray &show, QByteAr
 		// support the non-standard extension for URL to external sites
 		// in this case, url begins with 'URL:'
 		QByteArray finalUrl;
+		QByteArray iconUrl;
 		if (url.startsWith("URL:"))
 		{
 			finalUrl = url.mid(4);
+			iconUrl = finalUrl;
 		}
 		else
 		{
@@ -229,11 +231,12 @@ void gopher::processDirectoryLine(const QByteArray &d, QByteArray &show, QByteAr
 				finalUrl.append(port);
 			}
 			finalUrl.append('/' + type + url);
+			iconUrl = url;
 		}
 		show.append("\t\t\t\t<a href=\"");
 		show.append(finalUrl);
 		show.append("\">");
-		addIcon(type, finalUrl, show);
+		addIcon(type, iconUrl, show);
 		show.append(name);
 		show.append("</a><br />\n");
 		show.append("\t\t\t</div>");
