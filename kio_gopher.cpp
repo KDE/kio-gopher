@@ -134,7 +134,7 @@ void gopher::processDirectory(QByteArray *received, const QString &host, const Q
 	show.append("</title>\n");
 	show.append("\t\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n");
 	show.append("\t\t<style type=\"text/css\">\n");
-	show.append("\t\t\t.info{ font-size : small; }\n");
+	show.append("\t\t\t.info{ font-size : small; display : block; font-family : monospace; white-space : pre; margin-left : 18px; }\n");
 	show.append("\t\t</style>\n");
 	show.append("\t</head>\n");
 	show.append("\t<body>\n");
@@ -182,16 +182,17 @@ void gopher::processDirectoryLine(const QByteArray &d, QByteArray &show, QByteAr
 		
 	if (type == "i")
 	{
+		if (!info.isEmpty())
+			info.append("\n");
 		info.append(name);
-		info.append("<br />");
 	}
 	else
 	{
 		if (!info.isEmpty())
 		{
-			show.append("\t\t<div class=\"info\">\n");
-			show.append("\t\t\t" + info + '\n');
-			show.append("\t\t</div>\n");
+			show.append("\t\t<div class=\"info\">");
+			show.append(info);
+			show.append("</div>\n");
 			info = "";
 		}
 		// it's the final line, ignore it
