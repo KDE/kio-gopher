@@ -213,16 +213,27 @@ void gopher::processDirectoryLine(const QByteArray &d, QByteArray &show, QByteAr
 		//  g   Item is a GIF format graphics file.
 		//  I   Item is some kind of image file.  Client decides how to display.
 		show.append("\t\t\t<div>");
-		show.append("\t\t\t\t<a href=\"gopher://");
-		show.append(server);
-		if (port != "70")
+		// support the non-standard extension for URL to external sites
+		// in this case, url begins with 'URL:'
+		QByteArray finalUrl;
+		if (url.startsWith("URL:"))
 		{
-			show.append(":");
-			show.append(port);
+			finalUrl = url.mid(4);
 		}
-		show.append('/' + type + url);
+		else
+		{
+			finalUrl = "gopher://" + server;
+			if (port != "70")
+			{
+				finalUrl.append(":");
+				finalUrl.append(port);
+			}
+			finalUrl.append('/' + type + url);
+		}
+		show.append("\t\t\t\t<a href=\"");
+		show.append(finalUrl);
 		show.append("\">");
-		addIcon(type, url, show);
+		addIcon(type, finalUrl, show);
 		show.append(name);
 		show.append("</a><br />\n");
 		show.append("\t\t\t</div>");
