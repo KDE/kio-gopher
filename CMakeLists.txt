@@ -6,6 +6,7 @@ if (NOT KDE4_FOUND)
 	include_directories(${KDE4_INCLUDES})
 endif (NOT KDE4_FOUND)
 
+add_subdirectory(doc)
 
 set(kio_man_PART_SRCS kio_gopher.cpp)
 
