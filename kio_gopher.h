@@ -19,7 +19,7 @@ class gopher : public KIO::TCPSlaveBase
 	public:
 		gopher(const QByteArray &pool_socket, const QByteArray &app_socket);
 
-		void get(const KUrl& url);
+		void get(const QUrl& url);
 
 	private:
 		void processDirectory(QByteArray *received, const QString &host, const QString &path);

@@ -1,16 +1,48 @@
+project(kio_gopher)
 
-find_package(KDE4 REQUIRED)
-include(KDE4Defaults)
-add_definitions (${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
-include_directories(${KDE4_INCLUDES})
+cmake_minimum_required(VERSION 2.8.12)
+set(QT_MIN_VERSION "5.2.0")
 
+find_package(ECM 0.0.12 REQUIRED NO_MODULE)
+
+# where to look first for cmake modules, before ${CMAKE_ROOT}/Modules/ is checked
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
+
+include(ECMInstallIcons)
+include(FeatureSummary)
+include(GenerateExportHeader)
+
+include(KDEInstallDirs)
+include(KDECMakeSettings)
+include(KDECompilerSettings)
+
+find_package(Qt5 REQUIRED NO_MODULE
+    COMPONENTS
+    Core
+)
+
+find_package(KF5 REQUIRED
+    COMPONENTS
+    Codecs
+    DocTools
+    IconThemes
+    I18n
+    KIO
+)
+
+add_definitions(-DTRANSLATION_DOMAIN=\"kio_gopher\")
 add_subdirectory(doc)
 
-set(kio_man_PART_SRCS kio_gopher.cpp)
+set(kio_gopher_PART_SRCS kio_gopher.cpp)
 
-kde4_add_plugin(kio_gopher ${kio_man_PART_SRCS})
+add_library(kio_gopher MODULE ${kio_gopher_PART_SRCS})
 
-target_link_libraries(kio_gopher  ${KDE4_KIO_LIBS})
+target_link_libraries(kio_gopher
+    KF5::Codecs
+    KF5::IconThemes
+    KF5::I18n
+    KF5::KIOCore
+)
 
 install(TARGETS kio_gopher  DESTINATION ${PLUGIN_INSTALL_DIR})
 

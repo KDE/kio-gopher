@@ -10,22 +10,22 @@
 
 #include "kio_gopher.h"
 
+#include <QtCore/QBuffer>
+#include <QtCore/QCoreApplication>
+#include <QtCore/QFile>
+#include <QMimeType>
+#include <QMimeDatabase>
 #include <kcodecs.h>
-#include <kcomponentdata.h>
-#include <kdebug.h>
-#include <klocale.h>
-#include <kmimetype.h>
-
-#include <qbuffer.h>
-#include <qfile.h>
+#include <klocalizedstring.h>
 
 using namespace KIO;
 
 extern "C"
 {
-	int KDE_EXPORT kdemain( int argc, char **argv )
+	int Q_DECL_EXPORT kdemain( int argc, char **argv )
 	{
-		KComponentData instance( "kio_gopher" );
+		QCoreApplication app(argc, argv);   // needed for QSocketNotifier
+		app.setApplicationName(QLatin1String("kio_gopher"));
 
 		if (argc != 4)
 		{
@@ -45,7 +45,7 @@ gopher::gopher(const QByteArray &pool_socket, const QByteArray &app_socket) : TC
 {
 }
 
-void gopher::get(const KUrl& url )
+void gopher::get(const QUrl& url )
 {
 	// gopher urls are
 	// gopher://<host>:<port>/<gopher-path>
@@ -107,8 +107,9 @@ void gopher::get(const KUrl& url )
 		if (type == '1' || type =='7') processDirectory(new QByteArray(received.buffer().data(), bytes + 1), url.host(), url.path());
 		else
 		{
-			KMimeType::Ptr result = KMimeType::findByContent(received.buffer());
-			mimeType(result->name());
+			QMimeDatabase db;
+			QMimeType result = db.mimeTypeForData(received.buffer());
+			mimeType(result.name());
 			data(received.buffer());
 		}
 		disconnectFromHost();
@@ -340,8 +341,9 @@ void gopher::addIcon(const QString &type, const QByteArray &url, QByteArray &sho
 	else if (type == "I") icon = "image-x-generic.png";
 	else
 	{
-		KMimeType::Ptr mime = KMimeType::findByUrl(KUrl(url), 0, false, true);
-		icon = mime->iconName();
+		QMimeDatabase db;
+		QMimeType mime = db.mimeTypeForFile(QUrl(url).path(), QMimeDatabase::MatchExtension);
+		icon = mime.iconName();
 	}
 	QFile file(m_iconLoader.iconPath(icon, -16));
 	file.open(QIODevice::ReadOnly);
