@@ -44,7 +44,8 @@ target_link_libraries(kio_gopher
     KF5::KIOCore
 )
 
-install(TARGETS kio_gopher  DESTINATION ${PLUGIN_INSTALL_DIR})
+set_target_properties(kio_gopher PROPERTIES OUTPUT_NAME "gopher")
+install(TARGETS kio_gopher DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kio)
 
-install(FILES gopher.protocol DESTINATION  ${SERVICES_INSTALL_DIR})
+install(FILES gopher.protocol DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
 

@@ -1,5 +1,5 @@
 [Protocol]
-exec=kio_gopher
+exec=kf5/kio/gopher
 protocol=gopher
 input=none
 output=filesystem
