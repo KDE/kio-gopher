@@ -30,7 +30,7 @@ find_package(KF5 REQUIRED
     KIO
 )
 
-add_definitions(-DTRANSLATION_DOMAIN=\"kio_gopher\")
+add_definitions(-DTRANSLATION_DOMAIN=\"kio5_gopher\")
 add_subdirectory(doc)
 
 set(kio_gopher_PART_SRCS kio_gopher.cpp)
