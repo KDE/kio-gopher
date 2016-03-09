@@ -7,3 +7,4 @@ reading=true
 defaultMimetype=application/octet-stream
 determineMimetypeFromExtension=false
 X-DocPath=kioslave/gopher/index.html
+Class=:internet
