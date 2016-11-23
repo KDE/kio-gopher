@@ -1,7 +1,7 @@
 project(kio_gopher)
 
 cmake_minimum_required(VERSION 2.8.12)
-set(QT_MIN_VERSION "5.2.0")
+set(QT_MIN_VERSION 5.5.0)
 set(KF5_MIN_VERSION 5.27.0)
 
 find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
