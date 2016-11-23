@@ -20,6 +20,12 @@
 
 using namespace KIO;
 
+class KIOPluginForMetaData : public QObject
+{
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "org.kde.kio.slave.gopher" FILE "gopher.json")
+};
+
 extern "C"
 {
 	int Q_DECL_EXPORT kdemain( int argc, char **argv )
@@ -352,3 +358,5 @@ void gopher::addIcon(const QString &type, const QByteArray &url, QByteArray &sho
 	show.append(KCodecs::base64Encode(ba));
 	show.append("\" /> ");
 }
+
+#include "kio_gopher.moc"

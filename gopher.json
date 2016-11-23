@@ -1,0 +1,15 @@
+{
+    "KDE-KIO-Protocols": {
+        "gopher": {
+            "Class": ":internet",
+            "X-DocPath": "kioslave5/gopher/index.html",
+            "defaultMimetype": "application/octet-stream",
+            "determineMimetypeFromExtension": false,
+            "exec": "kf5/kio/gopher",
+            "input": "none",
+            "output": "filesystem",
+            "protocol": "gopher",
+            "reading": true
+        }
+    }
+}

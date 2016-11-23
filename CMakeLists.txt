@@ -48,6 +48,4 @@ target_link_libraries(kio_gopher
 set_target_properties(kio_gopher PROPERTIES OUTPUT_NAME "gopher")
 install(TARGETS kio_gopher DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kio)
 
-install(FILES gopher.protocol DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
-
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
