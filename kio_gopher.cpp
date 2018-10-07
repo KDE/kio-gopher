@@ -10,9 +10,9 @@
 
 #include "kio_gopher.h"
 
-#include <QtCore/QBuffer>
-#include <QtCore/QCoreApplication>
-#include <QtCore/QFile>
+#include <QBuffer>
+#include <QCoreApplication>
+#include <QFile>
 #include <QMimeType>
 #include <QMimeDatabase>
 #include <kcodecs.h>
