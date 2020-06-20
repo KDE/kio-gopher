@@ -1,6 +1,7 @@
+cmake_minimum_required(VERSION 3.0)
+
 project(kio_gopher)
 
-cmake_minimum_required(VERSION 2.8.12)
 set(QT_MIN_VERSION 5.5.0)
 set(KF5_MIN_VERSION 5.27.0)
 
