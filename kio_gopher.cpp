@@ -341,11 +341,11 @@ void gopher::addIcon(const QString &type, const QByteArray &url, QByteArray &sho
 {
 	QString icon;
 	QMimeDatabase db;
-	if (type == "1") icon = "inode-directory.png";
-	else if (type == "3") icon = "dialog-error.png";
-	else if (type == "7") icon = "system-search.png";
-	else if (type == "g") icon = "image-gif.png";
-	else if (type == "I") icon = "image-x-generic.png";
+	if (type == "1") icon = "inode-directory";
+	else if (type == "3") icon = "dialog-error";
+	else if (type == "7") icon = "system-search";
+	else if (type == "g") icon = "image-gif";
+	else if (type == "I") icon = "image-x-generic";
 	else
 	{
 		QMimeType mime = db.mimeTypeForFile(QUrl(url).path(), QMimeDatabase::MatchExtension);
