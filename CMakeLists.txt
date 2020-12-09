@@ -25,7 +25,6 @@ find_package(Qt5 REQUIRED NO_MODULE
 
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED
     COMPONENTS
-    Codecs
     DocTools
     IconThemes
     I18n
@@ -55,7 +54,6 @@ set(kio_gopher_PART_SRCS kio_gopher.cpp)
 add_library(kio_gopher MODULE ${kio_gopher_PART_SRCS})
 
 target_link_libraries(kio_gopher
-    KF5::Codecs
     KF5::IconThemes
     KF5::I18n
     KF5::KIOCore

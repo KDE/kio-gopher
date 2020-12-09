@@ -15,7 +15,6 @@
 #include <QFile>
 #include <QMimeType>
 #include <QMimeDatabase>
-#include <kcodecs.h>
 #include <klocalizedstring.h>
 
 using namespace KIO;
@@ -358,7 +357,7 @@ void gopher::addIcon(const QString &type, const QByteArray &url, QByteArray &sho
 	show.append("<img width=\"16\" height=\"16\" src=\"data:");
 	show.append(iconMime.name().toLatin1());
 	show.append(";base64,");
-	show.append(KCodecs::base64Encode(ba));
+	show.append(ba.toBase64());
 	show.append("\" /> ");
 }
 
