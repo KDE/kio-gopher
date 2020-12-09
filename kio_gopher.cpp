@@ -340,6 +340,7 @@ void gopher::handleSearch(const QString &host, const QString &path, int port)
 void gopher::addIcon(const QString &type, const QByteArray &url, QByteArray &show)
 {
 	QString icon;
+	QMimeDatabase db;
 	if (type == "1") icon = "inode-directory.png";
 	else if (type == "3") icon = "dialog-error.png";
 	else if (type == "7") icon = "system-search.png";
@@ -347,14 +348,16 @@ void gopher::addIcon(const QString &type, const QByteArray &url, QByteArray &sho
 	else if (type == "I") icon = "image-x-generic.png";
 	else
 	{
-		QMimeDatabase db;
 		QMimeType mime = db.mimeTypeForFile(QUrl(url).path(), QMimeDatabase::MatchExtension);
 		icon = mime.iconName();
 	}
 	QFile file(m_iconLoader.iconPath(icon, -16));
 	file.open(QIODevice::ReadOnly);
+	const QMimeType iconMime = db.mimeTypeForFile(file.fileName(), QMimeDatabase::MatchExtension);
 	QByteArray ba = file.readAll();
-	show.append("<img width=\"16\" height=\"16\" src=\"data:image/png;base64,");
+	show.append("<img width=\"16\" height=\"16\" src=\"data:");
+	show.append(iconMime.name().toLatin1());
+	show.append(";base64,");
 	show.append(KCodecs::base64Encode(ba));
 	show.append("\" /> ");
 }
