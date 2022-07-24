@@ -18,7 +18,7 @@ include(ECMInstallIcons)
 include(FeatureSummary)
 include(GenerateExportHeader)
 
-find_package(Qt5 REQUIRED NO_MODULE
+find_package(Qt${QT_MAJOR_VERSION} REQUIRED NO_MODULE
     COMPONENTS
     Core
 )
