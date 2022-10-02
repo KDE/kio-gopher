@@ -1,0 +1,45 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Zlatko Popov <zlatkopopov@fsa-bg.org>, 2005.
+# Yasen Pramatarov <yasen@lidneas.com>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: kio_gopher\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-12-10 02:31+0100\n"
+"PO-Revision-Date: 2009-05-16 23:35+0300\n"
+"Last-Translator: Yasen Pramatarov <yasen@lidneas.com>\n"
+"Language-Team: Bulgarian <dict@fsa-bg.org>\n"
+"Language: bg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: kio_gopher.cpp:93
+#, kde-format
+msgid "Connecting to %1..."
+msgstr "Свързване с %1..."
+
+#: kio_gopher.cpp:94
+#, kde-format
+msgid "%1 contacted. Retrieving data..."
+msgstr "Установена е връзка с %1. Получаване на данни..."
+
+#: kio_gopher.cpp:109
+#, kde-format
+msgid "Retrieved %1 bytes from %2..."
+msgstr "Получени са %1 байта от %2..."
+
+#: kio_gopher.cpp:328
+#, kde-format
+msgid "Enter a search term:"
+msgstr "Въведете израз за търсене:"
+
+#: kio_gopher.cpp:332
+#, kde-format
+msgctxt "Text on a search button, like at a search engine"
+msgid "Search"
+msgstr "Търсене"

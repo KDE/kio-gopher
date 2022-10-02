@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Serbian "INCLUDE"
+> <!-- change language only here -->
+]>
+<article lang="&language;" id="gopher">
+<title
+>Гофер</title>
+<articleinfo>
+<authorgroup>
+<author
+><personname
+><firstname
+>Лори</firstname
+> <surname
+>Вотс</surname
+></personname
+> &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+><firstname
+>Драган</firstname
+><surname
+>Пантелић</surname
+><affiliation
+><address
+><email
+>falcon-10@gmx.de</email
+></address
+></affiliation
+><contrib
+>превод</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+>Протокол гофер изникао је као дистрибуирани студентски информациони сервис на Универзитету Минесота. Гофер омогућава кориснику да приступи информацијама на гофер серверима у погону на интернет домаћинима.</para>
+
+<para
+>Гофер је интернет сервис за прегледање информација, са сучељем кроз меније. Корисници бирају информације из менија, које могу да врате даље меније или прикажу текстуални фајл. Поједина ставка може бити на гофер серверу којем сте поставили упит, или на другом гофер серверу (или другом домаћину). Гофер може да „тунелише“ од једног до другог сервера, а да корисник и не зна да се машина сервера или домаћина променила, стварајући илузију јединственог, обимног скупа међуповезаних менија. </para>
+
+<para
+>Гофер дозвољава кориснику да сними локацију ставке у „обележивач“, који се касније може испратити непосредно до одређене ставке, без потребе за поновном претрагом кроз систем менија. Гофер менији нису стандардизовани, с обзиром на то да је сваки гофер сервер индивидуалног склопа. </para>
+
+<para
+>Извор: <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/gophrdef.htm"
+> http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/gophrdef.htm</ulink
+> </para>
+</article>

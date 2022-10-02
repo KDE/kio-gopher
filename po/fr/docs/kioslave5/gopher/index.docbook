@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % French "INCLUDE"
+> <!-- change language only here -->
+]>
+<article lang="&language;" id="gopher">
+<title
+>gopher</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+><firstname
+>L&apos;équipe française &kde;</firstname
+><surname
+></surname
+><affiliation
+><address
+><email
+>doc@kde-france.org</email
+></address
+></affiliation
+><contrib
+>Traduction française&nbsp;</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+><command
+>gopher</command
+> démarra comme service d'informations de campus distribué à l'université de Minnesota. Gopher permet à l'utilisateur d'accéder aux informations sur les serveurs Gopher tournant sur les hôtes Internet.</para>
+
+<para
+>Gopher est un service d'exploration d'informations Internet qui utilise une interface commandée par des menus. Les utilisateurs sélectionnent les informations des menus, qui peuvent renvoyer un autre menu ou afficher un fichier texte. Une entrée peut se trouver sur le serveur Gopher auquel vous avez fait la demande originale, ou sur un autre serveur Gopher (ou un autre hôte). Gopher peut <quote
+>creuser un tunnel</quote
+> d'un Gopher à un autre sans que l'utilisateur ne sache que le serveur et/ou la machine hôte à changé. Gopher cache l'emplacement exact des ordinateurs à l'utilisateur, donnant l'<quote
+>illusion</quote
+> d'un grand jeu unique de menus inter-connectés. </para>
+
+<para
+>Gopher permet à l'utilisateur d'enregistrer l'emplacement des éléments dans des <quote
+>signets</quote
+>, permettant aux utilisateurs de suivre un <quote
+>signet</quote
+> directement vers un élément précis sans parcourir le système de menus. Les menus Gopher ne sont pas standardisés, de la même façon que chaque serveur Gopher est individuellement déterminé. </para>
+
+<para
+>Source : <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/gophrdef.htm"
+> http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/gophrdef.htm</ulink
+> </para>
+</article>

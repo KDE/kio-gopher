@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Polish "INCLUDE"
+> <!-- change language only here -->
+]>
+<article lang="&language;" id="gopher">
+<title
+>gopher</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+><firstname
+>Suse</firstname
+><surname
+>Polska</surname
+><affiliation
+><address
+><email
+>suse@suse.pl</email
+></address
+></affiliation
+><contrib
+>Polskie tłumaczenie</contrib
+></othercredit
+> <othercredit role="translator"
+><firstname
+>Krzysztof</firstname
+><surname
+>Woźniak</surname
+><affiliation
+><address
+><email
+>wozniakk@ceti.pl</email
+></address
+></affiliation
+><contrib
+>Polskie tłumaczenie - Aktualizacja i poprawki</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+>Z protokołu <command
+>gopher</command
+> zaczęto korzystać do rozpowszechniania informacji na kampusie University of Minnesota. Pozwala on użytkownikowi na dostęp poprzez sieć Internet do informacji zgromadzonych na serwerze gophera.</para>
+
+<para
+>Gopher jest Internetowym serwisem informacyjnym opartym na interfejsie rozwijanego menu. Użytkownicy wybierają pozycje w menu, które mogą się rozwinąć jako menu podrzędne lub jako odnośnik do pliku, który może znajdować sie na odwiedzanym serwerze Gopher, innym serwerze Gopher (lub w jeszcze innym miejscu w sieci). Protokół gopher może się automatycznie <quote
+>tunelować</quote
+> z jednego serwera na inny nawet bez wiedzy użytkownika, który nie musi wiedzieć iż serwer został zmieniony. Gopher zapamiętuje dokładną lokalizację komputerów jednocześnie chowając ją przed użytkownikiem, co wywołuje <quote
+>iluzje</quote
+> jednego wielkiego połączonego ze sobą menu. </para>
+
+<para
+>Gopher pozwala użytkownikowi na zapisanie lokalizacji danego elementu do <quote
+>ulubionych</quote
+> pozwalając użytkownikowi na przejście do zapisanej w <quote
+>ulubionych</quote
+> pozycji bez ponownego przeszukiwania całej struktury menu. Struktura menu serwerów Gophera nie jest określona żadnym standardem i z reguły na każdym serwerze Gopher jest zupełnie inna. </para>
+
+<para
+>Źródło: <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/gophrdef.htm"
+> http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/gophrdef.htm</ulink
+> </para>
+</article>

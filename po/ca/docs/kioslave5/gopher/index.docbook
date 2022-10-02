@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Catalan  "INCLUDE"
+> <!-- change language only here -->
+]>
+<article lang="&language;" id="gopher">
+<title
+>gopher</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+&traductor.Antoni.Bella; 
+</authorgroup>
+</articleinfo>
+
+<para
+><command
+>gopher</command
+> va començar com a un servei d'informació distribuïda pel campus de la Universitat de Minnesota. Gopher permet a l'usuari accedir a informació en servidors Gopher executant-se en màquines de la Internet.</para>
+
+<para
+>Gopher és un servei d'informació de la navegació per Internet que empra una interfície del tipus menú. Els usuaris seleccionen la informació des dels menús, la qual pot resultar en altres menús o mostrar un fitxer de text. Un element pot residir en el servidor Gopher al que us heu dirigit o pot estar en un altre servidor Gopher (o una altra màquina). Gopher pot establir un <quote
+>túnel</quote
+> des d'un Gopher a l'altre sense que l'usuari sàpiga que ha canviat de servidor i / o de màquina. Gopher manté oculta la localització exacta de les màquines, mantenint el <quote
+>miratge</quote
+> d'un sol conjunt de menús interconnectats. </para>
+
+<para
+>Gopher permet a l'usuari enregistrar la localització d'un element en un <quote
+>enllaç</quote
+>, de manera que els usuaris seguint aquest <quote
+>enllaç</quote
+> accedeixen directament cap a un element en particular sense cercar el menú del sistema. Els menús de Gopher no són estàndards, en el sentit que cada servidor els determina individualment. </para>
+
+<para
+>Font: <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/gophrdef.htm"
+> http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/gophrdef.htm</ulink
+> </para>
+</article>

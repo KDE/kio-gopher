@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Spanish "INCLUDE"
+> <!-- change language only here -->
+]>
+<article lang="&language;" id="gopher">
+<title
+>gopher</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+><firstname
+>Marcos</firstname
+><surname
+>Fouces Lago</surname
+><affiliation
+><address
+><email
+>mfouces@yahoo.es</email
+></address
+></affiliation
+><contrib
+>Traductor</contrib
+></othercredit
+> <othercredit role="translator"
+><firstname
+>Javier</firstname
+><surname
+>Viñal</surname
+><affiliation
+><address
+><email
+>fjvinal@gmail.com</email
+></address
+></affiliation
+><contrib
+>Traductor</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+><command
+>gopher</command
+> comenzó como un servicio de información distribuida para el campus de la Universidad de Minnesota. Gopher permite al usuario acceder a información en servidores Gopher ejecutándose en máquinas de Internet.</para>
+
+<para
+>Gopher es un servicio de navegación por información en Internet que utiliza una interfaz basada en menús. Los usuarios seleccionan información de los menús, que pueden devolver otros menús, o mostrar un archivo de texto. Un elemento puede residir en el servidor Gopher al que usted se dirigió originalmente, o puede estar en otro servidor Gopher (u otra máquina). Gopher puede establecer un <quote
+>túnel</quote
+> desde un Gopher a otro sin que el usuario sepa que ha cambiado de servidor o de máquina. Gopher mantiene oculta la ubicación exacta de los equipos, manteniendo la <quote
+>ilusión</quote
+> de un único gran conjunto de menús interconectados. </para>
+
+<para
+>Gopher permite al usuario registrar la ubicación de un elemento en un «marcador», permitiendo que los usuarios puedan acceder directamente a une elemento particular siguiendo ese «marcador», sin tener que buscar por el sistema de menús. Los menús de Gopher no están estandarizados, pues cada servidor los configura individualmente. </para>
+
+<para
+>Fuente: <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/gophrdef.htm"
+> http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/gophrdef.htm</ulink
+> </para>
+</article>

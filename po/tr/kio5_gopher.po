@@ -1,0 +1,48 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# Emre Aladağ <emre@emrealadag.com>, 2006.
+# Görkem Çetin <gorkem@gorkemcetin.com>, 2005.
+# obsoleteman <tulliana@gmail.com>, 2008.
+# Emir SARI <emir_sari@icloud.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: extragear-network-kde4\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-12-10 02:31+0100\n"
+"PO-Revision-Date: 2022-04-10 13:22+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 21.12.3\n"
+
+#: kio_gopher.cpp:93
+#, kde-format
+msgid "Connecting to %1..."
+msgstr "%1 adresine bağlanılıyor..."
+
+#: kio_gopher.cpp:94
+#, kde-format
+msgid "%1 contacted. Retrieving data..."
+msgstr "%1 ile iletişim kuruldu. Veri alınıyor..."
+
+#: kio_gopher.cpp:109
+#, kde-format
+msgid "Retrieved %1 bytes from %2..."
+msgstr "%1/%2 bayt alındı..."
+
+#: kio_gopher.cpp:328
+#, kde-format
+msgid "Enter a search term:"
+msgstr "Bir arama terimi girin:"
+
+#: kio_gopher.cpp:332
+#, kde-format
+msgctxt "Text on a search button, like at a search engine"
+msgid "Search"
+msgstr "Ara"

@@ -1,0 +1,43 @@
+# kio_gopher Bahasa Melayu (Malay) (ms)
+#
+# Sharuzzaman Ahmat Raslan <sharuzzaman@gmail.com>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: kio_gopher\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-12-10 02:31+0100\n"
+"PO-Revision-Date: 2011-01-12 20:36+0800\n"
+"Last-Translator: Sharuzzaman Ahmat Raslan <sharuzzaman@gmail.com>\n"
+"Language-Team: Malay <kedidiemas@yahoogroups.com>\n"
+"Language: ms\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=1;\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: kio_gopher.cpp:93
+#, kde-format
+msgid "Connecting to %1..."
+msgstr "Menyambung ke %1..."
+
+#: kio_gopher.cpp:94
+#, kde-format
+msgid "%1 contacted. Retrieving data..."
+msgstr "%1 disambung. Mendapatkan data..."
+
+#: kio_gopher.cpp:109
+#, kde-format
+msgid "Retrieved %1 bytes from %2..."
+msgstr "Mendapatkan %1 byte dari %2..."
+
+#: kio_gopher.cpp:328
+#, kde-format
+msgid "Enter a search term:"
+msgstr "Masukkan sebutan carian:"
+
+#: kio_gopher.cpp:332
+#, kde-format
+msgctxt "Text on a search button, like at a search engine"
+msgid "Search"
+msgstr "Cari"

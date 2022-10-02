@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Russian "INCLUDE"
+> <!-- change language only here -->
+]>
+<article lang="&language;" id="gopher">
+<title
+>gopher</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+><firstname
+></firstname
+><surname
+></surname
+><affiliation
+><address
+><email
+></email
+></address
+></affiliation
+><contrib
+></contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+><command
+>gopher</command
+> разрабатывался как распределенная служба предоставления и получения информации в пределах студенческого городка Университета Миннесоты. Этот протокол позволяет получать информацию на серверах Gopher, запущенных на узлах в сети Интернет.</para>
+
+<para
+>Gopher использует интерфейс меню. Пользователи выбирают из соответствующих меню информацию, которая также может оказать меню или текстовым файлом. Запрошенный элемент может располагаться как на сервере, с которым вы работаете непосредственно, так и на другом Gopher-сервере. Для получения данных с другого сервера, не отвлекая пользователя, используются <quote
+>туннели</quote
+>. Настоящий адрес узла, с которого запрашиваются данные, не виден пользователю, что создает иллюзию единой иерархии взаимосвязанных меню. </para>
+
+<para
+>Gopher позволяет создавать закладки на нужные элементы, так что можно перейти к ним напрямую, не проходя снова через все меню. Меню Gopher не стандартизованы и определяются каждым сервером самостоятельно. </para>
+
+<para
+>Источник: <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/gophrdef.htm"
+>http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/gophrdef.htm</ulink
+>. </para>
+</article>

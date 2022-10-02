@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Hungarian "INCLUDE"
+> <!-- change language only here -->
+]>
+<article lang="&language;" id="gopher">
+<title
+>gopher</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+><firstname
+>Tamás</firstname
+><surname
+>Szántó</surname
+><contrib
+>Magyar fordítás</contrib
+><affiliation
+><address
+><email
+>tszanto@mol.hu</email
+></address
+></affiliation
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+>A <command
+>Gopher</command
+> eredetileg a University of Minnesota decentralizált információs rendszerének készült. Mai formájában különféle felhasználói adatok lekérdezését teszi lehetővé az interneten keresztül az ún. Gopher-kiszolgálókról.</para>
+
+<para
+>A Gopher tehát egy internetes információböngészési szolgáltatás, mely interaktívan, menürendszeren keresztül kezelhető. A menükből újabb almenük nyílhatnak, ill. szöveges fájlokat lehet megjeleníteni. Az információknak nem kell egy kiszolgálóra kerülniük, más gépekről is származhatnak. A Gopher automatikusan lekezeli a más gépekre mutató hivatkozásokat, a felhasználók így észre sem veszik, ha a megjelenített adatok egy másik kiszolgálóról érkeznek. A Gopher elrejti a felhasználók elől, hogy az információ pontosan honnan származik, ezért a felhasználók előtt egy egybefüggő, egységes információs rendszer jelenik meg. </para>
+
+<para
+>A gopher protokoll lehetővé teszi Gopher-<quote
+>könyvjelzők</quote
+> létrehozását, lehetővé téve, hogy egy adott menüelemet közvetlenül, a teljes menürendszeren való végiglépkedés nélkül lehessen elérni. A Gopher-menük nincsenek szabványosítva, ezért sokféle változatban előfordulhatnak. </para>
+
+<para
+>Forrás: <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/gophrdef.htm"
+> http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/gophrdef.htm</ulink
+> </para>
+</article>

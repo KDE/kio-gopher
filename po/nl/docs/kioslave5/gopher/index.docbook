@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Dutch "INCLUDE"
+> <!-- change language only here -->
+]>
+<article lang="&language;" id="gopher">
+<title
+>gopher</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+&Otto.Bruggeman;&Rinse.Devries; 
+</authorgroup>
+</articleinfo>
+
+<para
+><command
+>gopher </command
+>begon als een gedistribueerd campus informatiesysteem op de universiteit van Minnesota. Gopher geeft de gebruiker de mogelijkheid om informatie op te halen van Gopher-servers die via het internet bereikbaar zijn.</para>
+
+<para
+>Gohper is een Internet Informatie-bladerservice die gebruik maakt van een menugestuurde interface. Gebruikers selecteren informatie uit menu's, die een ander menu of een tekstbestand kunnen weergeven. Een item waar u om vraagt kan op de server aanwezig zijn waaraan u het verzoek deed, of het kan aanwezg zijn op een andere Gopher-server (of een andere computer zonder Gopher). Gopher kan de informatie van andere computers  <quote
+>tunnelen</quote
+> zonder dat u merkt dat de informatie van een andere Gopher-server wordt gehaald. Gopher houdt de exacte locatie van machines geheim voor de gebruiker en geeft zo de <quote
+>illusie</quote
+> van een grote set van aan elkaar gekoppelde menu's. </para>
+
+<para
+>Gopher staat de gebruiker toe om de locatie van een item in een <quote
+>bladwijzer</quote
+> op te slaan zodat gebruikers direct via deze <quote
+>bladwijzer</quote
+> bij een bepaald menu terecht kunnen komen zonder te hoeven zoeken. Gopher-menu's zijn niet gestandariseerd en worden door iedere Gopher-server individueel bepaald. </para>
+
+<para
+>Bron: <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/gophrdef.htm"
+> http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/gophrdef.htm</ulink
+> </para>
+</article>

@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Romanian "INCLUDE"
+> <!-- change language only here -->
+]>
+<article lang="&language;" id="gopher">
+<title
+>gopher</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+&tradClaudiuCostin; 
+</authorgroup>
+</articleinfo>
+
+<para
+><command
+>gopher</command
+> s-a născut ca un serviciu de informaţii distribuit de campus la Universitatea Minnesota. Gopher permite utilizatorului să acceseze informaţii de pe serverele Gopher ce rulează pe maşini din Internet.</para>
+
+<para
+>Gopher este un serviciu Internet de navigare care utilizează o interfaţă bazată pe meniuri. Utilizatorii selectează informaţii din meniuri care pot returna alt meniu sau să afişeze un fişier text. Un item poate exista pe serverul unde a avut loc interogarea sau poate fi pe un alt server Gopher (sau altă maşină gazdă). Gopher poate <quote
+>tunela</quote
+> din alt Gopher fără ca utilizatorul să ştie că serverul şi/sau maşina gazdă sînt altele. Gopher ascunde utilizatorului locaţia exactă a calculatoarelor, oferind <quote
+>iluzia</quote
+> unui singur set larg de meniuri interconectate. </para>
+
+<para
+>Gopher permite utilizatorului să înregistreze locaţia unui item într-un <quote
+>semn de carte</quote
+> oferindu-i posibilitatea să urmeze direct <quote
+>semnul de carte</quote
+> către un item particular fără căutare în sistemul de meniuri. Meniurile Gopher nu sînt standardizate, astfel încît fiecare server are nota lui particulară. </para>
+
+<para
+>Sursă: <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/gophrdef.htm"
+> http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/gophrdef.htm</ulink
+> </para>
+</article>

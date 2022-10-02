@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Italian "INCLUDE"
+> <!-- change language only here -->
+]>
+<article lang="&language;" id="gopher">
+<title
+>gopher</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+><firstname
+>Luciano</firstname
+> <surname
+>Montanaro</surname
+><affiliation
+><address
+><email
+>mikelima@cirulla.net</email
+></address
+></affiliation
+><contrib
+>Traduzione del documento</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+><command
+>gopher</command
+> ha avuto origine come servizio distribuito di informazioni del campus dell'Università del Minnesota. Gopher permette agli utenti di accedere alle informazioni sui server gopher in funzione su host di Internet.</para>
+
+<para
+>Gopher è un servizio di ricerca di informazioni di Internet che usa un'interfaccia guidata da menu. Gli utenti selezionano le informazioni dai menu, che possono ritornare altri menu, o mostrare un file di testo. Una voce può risiedere sul server Gopher a cui è stata fatta la richiesta iniziale, oppure può essere su un altro server Gopher (o su un altro host). Gopher può <quote
+>scavare gallerie</quote
+> da un server all'altro senza che l'utente si renda conto che il server e/o l'host sono cambiati. Gopher lascia la posizione esatta dei computer nascosta all'utente, generando l'illusione di un solo grande insieme interconnesso di menu. </para>
+
+<para
+>Gopher permette all'utente di registrare la posizione di una locazione in un <quote
+>segnalibro</quote
+>, consentendo quindi agli utenti di seguire un <quote
+>segnalibro</quote
+> ad una voce particolare direttamente senza fare ricerche sul sistema di menu. I menu di Gopher non seguono alcuno standard, fintanto che ciascun server Gopher è determinato individualmente. </para>
+
+<para
+>Fonte: <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/gophrdef.htm"
+> http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/gophrdef.htm</ulink
+> </para>
+</article>

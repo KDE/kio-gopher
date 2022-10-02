@@ -1,0 +1,45 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Laszlo Papp <djszapi@archlinux.us>, 2010.
+# Kristof Kiszel <ulysses@fsf.hu>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-12-10 02:31+0100\n"
+"PO-Revision-Date: 2022-02-10 14:32+0100\n"
+"Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
+"Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 21.07.70\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: kio_gopher.cpp:93
+#, kde-format
+msgid "Connecting to %1..."
+msgstr "Csatlakozás - %1…"
+
+#: kio_gopher.cpp:94
+#, kde-format
+msgid "%1 contacted. Retrieving data..."
+msgstr "%1 csatlakoztatva. Adatok letöltése…"
+
+#: kio_gopher.cpp:109
+#, kde-format
+msgid "Retrieved %1 bytes from %2..."
+msgstr "%1 / %2 bájt letöltve…"
+
+#: kio_gopher.cpp:328
+#, kde-format
+msgid "Enter a search term:"
+msgstr "Adjon meg egy keresési kifejezést:"
+
+#: kio_gopher.cpp:332
+#, kde-format
+msgctxt "Text on a search button, like at a search engine"
+msgid "Search"
+msgstr "Keresés"

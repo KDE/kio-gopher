@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Danish "INCLUDE"
+> <!-- change language only here -->
+]>
+<article lang="&language;" id="gopher">
+<title
+>gopher</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+&erik.kjaer.pedersen.role; 
+</authorgroup>
+</articleinfo>
+
+<para
+><command
+>gopher</command
+> begyndte som en distribueret campus-informationsservice University of Minnesota. Gopher tillader brugeren at få adgang til information på Gopher-servere der kører på internet-værter.</para>
+
+<para
+>Gopher er en internet-informationssøgnings-service der bruger en menu-dreven grænseflade. Brugere vælger information fra menuer, som sommetider giver en ny menu eller viser en tekstfil. Et punkt kan være den Gopher-server du oprindeligt forespurgte, eller det kan være på en anden Gopher-server (eller en anden vært). Gopher kan gå i en <quote
+>tunnel</quote
+> fra en Gopher til en anden uden at brugeren ved at serveren og/eller værtsmaskinen er ændret. Gopher holder det nøjagtige sted hvor computerne er skjult for brugeren, og giver <quote
+>illusionen</quote
+> af en enkel, stor sammenhængende menu. </para>
+
+<para
+>Gopher tillader brugeren at huske et sted ved et <quote
+>bogmærke</quote
+>, og tillader således brugeren at følge et <quote
+>bogmærke</quote
+> direkte til et bestemt punkt uden at skulle gennemsøge menusystemet. Gopher-menuer er ikke standardiserede, idet hver Gopher-server selv bestemmer. </para>
+
+<para
+>Kilde: <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/gophrdef.htm"
+> http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/gophrdef.htm</ulink
+> </para>
+</article>

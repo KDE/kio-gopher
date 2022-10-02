@@ -1,0 +1,43 @@
+# Translation of kio_gopher into esperanto.
+# Axel Rousseau <axel@esperanto-jeunes.org>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kio_gopher\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-12-10 02:31+0100\n"
+"PO-Revision-Date: 2009-11-17 11:18+0100\n"
+"Last-Translator: Axel Rousseau <axel@esperanto-jeunes.org>\n"
+"Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
+"Language: eo\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: pology\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: kio_gopher.cpp:93
+#, kde-format
+msgid "Connecting to %1..."
+msgstr "Konektanta al %1..."
+
+#: kio_gopher.cpp:94
+#, kde-format
+msgid "%1 contacted. Retrieving data..."
+msgstr "%1 konektita. Elŝutas datumojn"
+
+#: kio_gopher.cpp:109
+#, kde-format
+msgid "Retrieved %1 bytes from %2..."
+msgstr "Ricevas %1 bitokojn el %2..."
+
+#: kio_gopher.cpp:328
+#, kde-format
+msgid "Enter a search term:"
+msgstr "Entajpu serĉesprimon"
+
+#: kio_gopher.cpp:332
+#, kde-format
+msgctxt "Text on a search button, like at a search engine"
+msgid "Search"
+msgstr "Serĉi"

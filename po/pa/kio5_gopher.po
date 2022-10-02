@@ -1,0 +1,46 @@
+# translation of kio_gopher.po to Punjabi
+# Copyright (C) 2004, 2009 Free Software Foundation, Inc.
+#
+# Amanpreet Singh Alam <aalam@redhat.com>, 2004.
+# A S Alam <aalam@users.sf.net>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: kio_gopher\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-12-10 02:31+0100\n"
+"PO-Revision-Date: 2009-01-19 08:25+0530\n"
+"Last-Translator: A S Alam <aalam@users.sf.net>\n"
+"Language-Team: Punjabi <punjabi-l10n@users.sf.net>\n"
+"Language: pa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"\n"
+
+#: kio_gopher.cpp:93
+#, kde-format
+msgid "Connecting to %1..."
+msgstr "%1 ਨਾਲ ਜੁੜਿਆ ਜਾ ਰਿਹਾ ਹੈ..."
+
+#: kio_gopher.cpp:94
+#, kde-format
+msgid "%1 contacted. Retrieving data..."
+msgstr "%1 ਨਾਲ ਜੁੜਿਆ ਹੈ। ਡਾਟਾ ਪ੍ਰਾਪਤ ਹੋ ਰਿਹਾ ਹੈ..."
+
+#: kio_gopher.cpp:109
+#, kde-format
+msgid "Retrieved %1 bytes from %2..."
+msgstr "%2 ਤੋਂ %1 ਬਾਇਟ ਪ੍ਰਾਪਤ ਹੋ ਰਹੇ ਹਨ..."
+
+#: kio_gopher.cpp:328
+#, kde-format
+msgid "Enter a search term:"
+msgstr "ਇੱਕ ਖੋਜ ਇਕਾਈ ਦਿਓ:"
+
+#: kio_gopher.cpp:332
+#, kde-format
+msgctxt "Text on a search button, like at a search engine"
+msgid "Search"
+msgstr "ਖੋਜ"

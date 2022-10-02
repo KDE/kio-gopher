@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Serbian-Latin "INCLUDE"
+> <!-- change language only here -->
+]>
+<article lang="&language;" id="gopher">
+<title
+>Gopher</title>
+<articleinfo>
+<authorgroup>
+<author
+><personname
+><firstname
+>Lori</firstname
+> <surname
+>Vots</surname
+></personname
+> &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+><firstname
+>Dragan</firstname
+><surname
+>Pantelić</surname
+><affiliation
+><address
+><email
+>falcon-10@gmx.de</email
+></address
+></affiliation
+><contrib
+>prevod</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+>Protokol gopher iznikao je kao distribuirani studentski informacioni servis na Univerzitetu Minesota. Gopher omogućava korisniku da pristupi informacijama na gopher serverima u pogonu na internet domaćinima.</para>
+
+<para
+>Gopher je internet servis za pregledanje informacija, sa sučeljem kroz menije. Korisnici biraju informacije iz menija, koje mogu da vrate dalje menije ili prikažu tekstualni fajl. Pojedina stavka može biti na gopher serveru kojem ste postavili upit, ili na drugom gopher serveru (ili drugom domaćinu). Gopher može da „tuneliše“ od jednog do drugog servera, a da korisnik i ne zna da se mašina servera ili domaćina promenila, stvarajući iluziju jedinstvenog, obimnog skupa međupovezanih menija. </para>
+
+<para
+>Gopher dozvoljava korisniku da snimi lokaciju stavke u „obeleživač“, koji se kasnije može ispratiti neposredno do određene stavke, bez potrebe za ponovnom pretragom kroz sistem menija. Gopher meniji nisu standardizovani, s obzirom na to da je svaki gopher server individualnog sklopa. </para>
+
+<para
+>Izvor: <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/gophrdef.htm"
+> http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/gophrdef.htm</ulink
+> </para>
+</article>

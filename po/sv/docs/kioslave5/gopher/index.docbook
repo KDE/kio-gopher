@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Swedish "INCLUDE"
+> <!-- change language only here -->
+]>
+<article lang="&language;" id="gopher">
+<title
+>gopher</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+><command
+>gopher</command
+> började som en distribuerad informationsservice för universitetsområdet på Minnesotas universitet. Gopher låter användarna komma åt information från Gopher-servrar som kör på Internet-värddatorer.</para>
+
+<para
+>Gopher är ett informationsläsningssystem för Internet som använder ett menybaserat gränssnitt. Användare väljer information i menyer, som kan visa en annan meny eller en textfil. Ett objekt kan finnas på den Gopher-server som du ursprungligen frågade, eller det kan vara en annan Gopher-server (eller en annan värddator). Gopher kan <quote
+>tunnla</quote
+> från en Gopher till en annan utan att användaren vet att servern och/eller värddatorn har ändrats. Gopher håller reda på den verkliga platsen för datorer dolda för användaren, och ger <quote
+>illusionen</quote
+> av en enda stor mängd sammanbundna menyer. </para>
+
+<para
+>Gopher låter användaren spara positionen för ett objekt i ett <quote
+>bokmärke</quote
+>, och på så sätt kan användare direkt följa ett <quote
+>bokmärke</quote
+> till ett särskilt objekt utan att leta i menysystemet. Gopher-menyer är inte standardiserade, på grund av att varje Gopher-server ställs in individuellt. </para>
+
+<para
+>Källa: <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/gophrdef.htm"
+> http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/gophrdef.htm</ulink
+> </para>
+</article>
