@@ -40,7 +40,7 @@ msgstr "S'han rebut %1 bytes de %2..."
 #: kio_gopher.cpp:328
 #, kde-format
 msgid "Enter a search term:"
-msgstr "Introduïu un terme que cal buscar:"
+msgstr "Introduïu un terme que calga buscar:"
 
 #: kio_gopher.cpp:332
 #, kde-format
