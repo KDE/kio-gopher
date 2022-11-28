@@ -11,15 +11,15 @@
 #ifndef __kio_gopher_h__
 #define __kio_gopher_h__
 
-#include <kio/tcpslavebase.h>
+#include <kio/tcpworkerbase.h>
 #include <kiconloader.h>
 
-class gopher : public KIO::TCPSlaveBase
+class gopher : public KIO::TCPWorkerBase
 {
 	public:
 		gopher(const QByteArray &pool_socket, const QByteArray &app_socket);
 
-                void get(const QUrl& url) override;
+		KIO::WorkerResult get(const QUrl& url) override;
 
 	private:
 		void processDirectory(QByteArray *received, const QString &host, const QString &path);

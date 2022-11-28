@@ -46,11 +46,11 @@ extern "C"
 
 /* gopher */
 
-gopher::gopher(const QByteArray &pool_socket, const QByteArray &app_socket) : TCPSlaveBase("gopher", pool_socket, app_socket)
+gopher::gopher(const QByteArray &pool_socket, const QByteArray &app_socket) : TCPWorkerBase("gopher", pool_socket, app_socket)
 {
 }
 
-void gopher::get(const QUrl& url )
+KIO::WorkerResult gopher::get(const QUrl& url )
 {
 	// gopher urls are
 	// gopher://<host>:<port>/<gopher-path>
@@ -74,7 +74,7 @@ void gopher::get(const QUrl& url )
 	else port = 70;
 
 	// connect to the host
-	if (!connectToHost("gopher", url.host(), port)) return;
+	if (auto result = connectToHost("gopher", url.host(), port); !result.success()) return result;
 
 	setBlocking(true);
 	
@@ -119,7 +119,7 @@ void gopher::get(const QUrl& url )
 		}
 		disconnectFromHost();
 	}
-	finished();
+	return KIO::WorkerResult::pass();
 }
 
 void gopher::processDirectory(QByteArray *received, const QString &host, const QString &path)
