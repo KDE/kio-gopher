@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2020-12-10 02:31+0100\n"
+"POT-Creation-Date: 2022-11-29 00:46+0000\n"
 "PO-Revision-Date: 2013-02-15 19:47+0100\n"
 "Last-Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -18,27 +18,27 @@ msgstr ""
 "%100==4 ? 3 : 0);\n"
 "X-Generator: Lokalize 1.5\n"
 
-#: kio_gopher.cpp:93
+#: kio_gopher.cpp:90
 #, kde-format
 msgid "Connecting to %1..."
 msgstr "Povezovanje z %1 ..."
 
-#: kio_gopher.cpp:94
+#: kio_gopher.cpp:91
 #, kde-format
 msgid "%1 contacted. Retrieving data..."
 msgstr "%1 je bil obveščen. Pridobivanje podatkov ..."
 
-#: kio_gopher.cpp:109
+#: kio_gopher.cpp:105
 #, kde-format
 msgid "Retrieved %1 bytes from %2..."
 msgstr "Pridobljenih %1 bajtov od %2 ..."
 
-#: kio_gopher.cpp:328
+#: kio_gopher.cpp:314
 #, kde-format
 msgid "Enter a search term:"
 msgstr "Vnesite iskani pojem:"
 
-#: kio_gopher.cpp:332
+#: kio_gopher.cpp:318
 #, kde-format
 msgctxt "Text on a search button, like at a search engine"
 msgid "Search"

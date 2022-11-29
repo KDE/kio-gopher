@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio-gopher\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2020-12-10 02:31+0100\n"
+"POT-Creation-Date: 2022-11-29 00:46+0000\n"
 "PO-Revision-Date: 2020-07-29 18:33+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -20,27 +20,27 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 20.04.3\n"
 
-#: kio_gopher.cpp:93
+#: kio_gopher.cpp:90
 #, kde-format
 msgid "Connecting to %1..."
 msgstr "%1(e)ra konektatzen..."
 
-#: kio_gopher.cpp:94
+#: kio_gopher.cpp:91
 #, kde-format
 msgid "%1 contacted. Retrieving data..."
 msgstr "%1(e)kin kontaktua egin da. Datuak eskuratzen..."
 
-#: kio_gopher.cpp:109
+#: kio_gopher.cpp:105
 #, kde-format
 msgid "Retrieved %1 bytes from %2..."
 msgstr "%1 byte eskuratu dira %2(e)tik..."
 
-#: kio_gopher.cpp:328
+#: kio_gopher.cpp:314
 #, kde-format
 msgid "Enter a search term:"
 msgstr "Sartu bilatu beharreko termino bat:"
 
-#: kio_gopher.cpp:332
+#: kio_gopher.cpp:318
 #, kde-format
 msgctxt "Text on a search button, like at a search engine"
 msgid "Search"

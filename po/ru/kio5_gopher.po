@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio_gopher\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2020-12-10 02:31+0100\n"
+"POT-Creation-Date: 2022-11-29 00:46+0000\n"
 "PO-Revision-Date: 2008-10-05 00:13+0300\n"
 "Last-Translator: Nick Shaforostoff <shaforostoff@kde.ru>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -22,27 +22,27 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
-#: kio_gopher.cpp:93
+#: kio_gopher.cpp:90
 #, kde-format
 msgid "Connecting to %1..."
 msgstr "Соединение с %1..."
 
-#: kio_gopher.cpp:94
+#: kio_gopher.cpp:91
 #, kde-format
 msgid "%1 contacted. Retrieving data..."
 msgstr "Соединено с %1. Получение данных..."
 
-#: kio_gopher.cpp:109
+#: kio_gopher.cpp:105
 #, kde-format
 msgid "Retrieved %1 bytes from %2..."
 msgstr "Получено %1 байт от %2"
 
-#: kio_gopher.cpp:328
+#: kio_gopher.cpp:314
 #, kde-format
 msgid "Enter a search term:"
 msgstr "Введите поисковый запрос:"
 
-#: kio_gopher.cpp:332
+#: kio_gopher.cpp:318
 #, kde-format
 msgctxt "Text on a search button, like at a search engine"
 msgid "Search"

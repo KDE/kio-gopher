@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio_gopher 3.4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2020-12-10 02:31+0100\n"
+"POT-Creation-Date: 2022-11-29 00:46+0000\n"
 "PO-Revision-Date: 2005-05-25 18:14-0600\n"
 "Last-Translator: Steve Murphy <murf@e-tools.com>\n"
 "Language-Team: Kinyarwanda <translation-team-rw@lists.sourceforge.net>\n"
@@ -25,27 +25,27 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: kio_gopher.cpp:93
+#: kio_gopher.cpp:90
 #, kde-format
 msgid "Connecting to %1..."
 msgstr "Kwihuza ku %1\"..."
 
-#: kio_gopher.cpp:94
+#: kio_gopher.cpp:91
 #, fuzzy, kde-format
 msgid "%1 contacted. Retrieving data..."
 msgstr "%1yabajijwe."
 
-#: kio_gopher.cpp:109
+#: kio_gopher.cpp:105
 #, fuzzy, kde-format
 msgid "Retrieved %1 bytes from %2..."
 msgstr "%1 Bayite Kuva: %2 ... "
 
-#: kio_gopher.cpp:328
+#: kio_gopher.cpp:314
 #, kde-format
 msgid "Enter a search term:"
 msgstr "Injiza ijambo ryo gushaka:"
 
-#: kio_gopher.cpp:332
+#: kio_gopher.cpp:318
 #, fuzzy, kde-format
 #| msgid "Search"
 msgctxt "Text on a search button, like at a search engine"
