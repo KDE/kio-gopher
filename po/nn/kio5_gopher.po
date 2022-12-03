@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2020-12-10 02:31+0100\n"
+"POT-Creation-Date: 2022-11-29 00:46+0000\n"
 "PO-Revision-Date: 2018-05-27 12:29+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -19,27 +19,27 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 "X-Generator: Lokalize 2.0\n"
 
-#: kio_gopher.cpp:93
+#: kio_gopher.cpp:90
 #, kde-format
 msgid "Connecting to %1..."
 msgstr "Koplar til %1 …"
 
-#: kio_gopher.cpp:94
+#: kio_gopher.cpp:91
 #, kde-format
 msgid "%1 contacted. Retrieving data..."
 msgstr "%1 kontakta. Tek imot data …"
 
-#: kio_gopher.cpp:109
+#: kio_gopher.cpp:105
 #, kde-format
 msgid "Retrieved %1 bytes from %2..."
 msgstr "Har fått %1 byte frå %2 …"
 
-#: kio_gopher.cpp:328
+#: kio_gopher.cpp:314
 #, kde-format
 msgid "Enter a search term:"
 msgstr "Skriv inn søkjetekst:"
 
-#: kio_gopher.cpp:332
+#: kio_gopher.cpp:318
 #, kde-format
 msgctxt "Text on a search button, like at a search engine"
 msgid "Search"
