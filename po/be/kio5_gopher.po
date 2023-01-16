@@ -1,0 +1,48 @@
+# Zmicier <zmicerturok@gmail.com>, 2023.
+msgid ""
+msgstr ""
+"Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-11-29 00:46+0000\n"
+"PO-Revision-Date: 2023-01-15 11:16\n"
+"Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
+"Language-Team: Belarusian\n"
+"Language: be_BY\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || n%10>=5 && n%10<=9 || n"
+"%100>=11 && n%100<=14 ? 2 : 3);\n"
+"X-Generator: Lokalize 22.12.1\n"
+"X-Crowdin-Project: 86ff119b1606fcaa910d6b44fc14b611\n"
+"X-Crowdin-Project-ID: 127\n"
+"X-Crowdin-Language: be\n"
+"X-Crowdin-File: /main/be/kio-gopher/kio5_gopher.po\n"
+"X-Crowdin-File-ID: 9036\n"
+
+#: kio_gopher.cpp:90
+#, kde-format
+msgid "Connecting to %1..."
+msgstr "Падлучэнне да %1..."
+
+#: kio_gopher.cpp:91
+#, kde-format
+msgid "%1 contacted. Retrieving data..."
+msgstr "%1 падлучана. Атрыманне даных..."
+
+#: kio_gopher.cpp:105
+#, kde-format
+msgid "Retrieved %1 bytes from %2..."
+msgstr "Атрыманне %1 байтаў з %2..."
+
+#: kio_gopher.cpp:314
+#, kde-format
+msgid "Enter a search term:"
+msgstr "Увядзіце тэрмін для пошуку:"
+
+#: kio_gopher.cpp:318
+#, kde-format
+msgctxt "Text on a search button, like at a search engine"
+msgid "Search"
+msgstr "Пошук"
