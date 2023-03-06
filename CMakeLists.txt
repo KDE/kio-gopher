@@ -28,7 +28,7 @@ find_package(Qt${QT_MAJOR_VERSION} REQUIRED NO_MODULE
     Core
 )
 
-find_package(KF5 ${KF5_MIN_VERSION} REQUIRED
+find_package(KF${QT_MAJOR_VERSION} ${KF5_MIN_VERSION} REQUIRED
     COMPONENTS
     DocTools
     IconThemes
@@ -59,9 +59,9 @@ set(kio_gopher_PART_SRCS kio_gopher.cpp)
 add_library(kio_gopher MODULE ${kio_gopher_PART_SRCS})
 
 target_link_libraries(kio_gopher
-    KF5::IconThemes
-    KF5::I18n
-    KF5::KIOCore
+    KF${QT_MAJOR_VERSION}::IconThemes
+    KF${QT_MAJOR_VERSION}::I18n
+    KF${QT_MAJOR_VERSION}::KIOCore
 )
 
 set_target_properties(kio_gopher PROPERTIES OUTPUT_NAME "gopher")
