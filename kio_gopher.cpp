@@ -41,7 +41,7 @@ int Q_DECL_EXPORT kdemain(int argc, char **argv)
 /* gopher */
 
 gopher::gopher(const QByteArray &pool_socket, const QByteArray &app_socket)
-    : TCPWorkerBase("gopher", pool_socket, app_socket)
+    : WorkerBase("gopher", pool_socket, app_socket)
 {
 }
 
@@ -76,8 +76,6 @@ KIO::WorkerResult gopher::get(const QUrl &url)
     if (auto result = connectToHost("gopher", url.host(), port); !result.success())
         return result;
 
-    setBlocking(true);
-
     if (type == '7' && query.isNull()) {
         disconnectFromHost();
         handleSearch(url.host(), path, port);
@@ -93,12 +91,12 @@ KIO::WorkerResult gopher::get(const QUrl &url)
 
         // send the selector
         path.remove(0, 2);
-        write(path.toLatin1(), path.length());
-        write(query.toLatin1(), query.length());
-        write("\r\n", 2);
+        socketWrite(path.toLatin1(), path.length());
+        socketWrite(query.toLatin1(), query.length());
+        socketWrite("\r\n", 2);
 
         // read the data
-        while ((i = read(aux, 10240)) > 0) {
+        while ((i = socketRead(aux, 10240)) > 0) {
             bytes += i;
             received.write(aux, i);
             processedSize(bytes);
@@ -349,6 +347,90 @@ void gopher::addIcon(const QString &type, const QByteArray &url, QByteArray &sho
     show.append(";base64,");
     show.append(ba.toBase64());
     show.append("\" /> ");
+}
+
+KIO::WorkerResult gopher::connectToHost(const QString & /*protocol*/, const QString &host, quint16 port)
+{
+    QString errorString;
+    const int errCode = connectToHost(host, port, &errorString);
+    if (errCode == 0) {
+        return WorkerResult::pass();
+    }
+
+    return WorkerResult::fail(errCode, errorString);
+}
+
+int gopher::connectToHost(const QString &host, quint16 port, QString *errorString)
+{
+    if (errorString) {
+        errorString->clear(); // clear prior error messages.
+    }
+
+    const int timeout = (connectTimeout() * 1000); // 20 sec timeout value
+
+    disconnectFromHost(); // Reset some state, even if we are already disconnected
+
+    socket.connectToHost(host, port);
+    socket.waitForConnected(timeout > -1 ? timeout : -1);
+
+    if (socket.state() != QAbstractSocket::ConnectedState) {
+        if (errorString) {
+            *errorString = host + QLatin1String(": ") + socket.errorString();
+        }
+        switch (socket.error()) {
+        case QAbstractSocket::UnsupportedSocketOperationError:
+            return ERR_UNSUPPORTED_ACTION;
+        case QAbstractSocket::RemoteHostClosedError:
+            return ERR_CONNECTION_BROKEN;
+        case QAbstractSocket::SocketTimeoutError:
+            return ERR_SERVER_TIMEOUT;
+        case QAbstractSocket::HostNotFoundError:
+            return ERR_UNKNOWN_HOST;
+        default:
+            return ERR_CANNOT_CONNECT;
+        }
+    }
+
+    return 0;
+}
+
+void gopher::disconnectFromHost()
+{
+    if (socket.state() == QAbstractSocket::UnconnectedState) {
+        // discard incoming data - the remote host might have disconnected us in the meantime
+        // but the visible effect of disconnectFromHost() should stay the same.
+        socket.close();
+        return;
+    }
+
+    socket.disconnectFromHost();
+    if (socket.state() != QAbstractSocket::UnconnectedState) {
+        socket.waitForDisconnected(-1); // wait for unsent data to be sent
+    }
+    socket.close(); // whatever that means on a socket
+}
+
+ssize_t gopher::socketWrite(const char *data, ssize_t len)
+{
+    ssize_t written = socket.write(data, len);
+
+    bool success = socket.waitForBytesWritten(-1);
+
+    socket.flush(); // this is supposed to get the data on the wire faster
+
+    if (socket.state() != QAbstractSocket::ConnectedState || !success) {
+        return -1;
+    }
+
+    return written;
+}
+
+ssize_t gopher::socketRead(char *data, ssize_t len)
+{
+    if (!socket.bytesAvailable()) {
+        socket.waitForReadyRead(-1);
+    }
+    return socket.read(data, len);
 }
 
 #include "kio_gopher.moc"
