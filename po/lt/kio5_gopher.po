@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio_gopher\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-29 00:46+0000\n"
+"POT-Creation-Date: 2023-07-12 00:47+0000\n"
 "PO-Revision-Date: 2019-06-29 19:29+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -17,27 +17,27 @@ msgstr ""
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
 "X-Generator: Poedit 2.2.1\n"
 
-#: kio_gopher.cpp:90
+#: kio_gopher.cpp:88
 #, kde-format
 msgid "Connecting to %1..."
 msgstr "Jungiamasi prie %1..."
 
-#: kio_gopher.cpp:91
+#: kio_gopher.cpp:89
 #, kde-format
 msgid "%1 contacted. Retrieving data..."
 msgstr "Susisiekta su %1. Gaunami duomenys..."
 
-#: kio_gopher.cpp:105
+#: kio_gopher.cpp:103
 #, kde-format
 msgid "Retrieved %1 bytes from %2..."
 msgstr "Gauta %1 baitų iš %2..."
 
-#: kio_gopher.cpp:314
+#: kio_gopher.cpp:312
 #, kde-format
 msgid "Enter a search term:"
 msgstr "Įrašykite paieškos žodį:"
 
-#: kio_gopher.cpp:318
+#: kio_gopher.cpp:316
 #, kde-format
 msgctxt "Text on a search button, like at a search engine"
 msgid "Search"
