@@ -11,6 +11,8 @@
 #include <QFile>
 #include <QMimeDatabase>
 #include <QMimeType>
+#include <QUrl>
+
 #include <klocalizedstring.h>
 
 using namespace KIO;
