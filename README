@@ -1,7 +1,7 @@
-Gopher kioslave Readme
+Gopher KIO Worker Readme
 
 This adds support for the gopher protocol to konqueror and all programs
-which supports kioslaves.
+which supports KIO workers.
 
 It is still in development.
 

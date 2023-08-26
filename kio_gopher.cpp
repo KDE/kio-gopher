@@ -20,7 +20,7 @@ using namespace KIO;
 class KIOPluginForMetaData : public QObject
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.kde.kio.slave.gopher" FILE "gopher.json")
+    Q_PLUGIN_METADATA(IID "org.kde.kio.worker.gopher" FILE "gopher.json")
 };
 
 extern "C" {
@@ -34,8 +34,8 @@ int Q_DECL_EXPORT kdemain(int argc, char **argv)
         exit(-1);
     }
 
-    gopher slave(argv[2], argv[3]);
-    slave.dispatchLoop();
+    gopher worker(argv[2], argv[3]);
+    worker.dispatchLoop();
     return 0;
 }
 }
