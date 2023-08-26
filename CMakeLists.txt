@@ -1,8 +1,8 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.16)
 
 project(kio_gopher)
 
-set(QT_MIN_VERSION 5.5.0)
+set(QT_MIN_VERSION 5.15.2)
 set(KF5_MIN_VERSION 5.99.0)
 set(KDE_COMPILERSETTINGS_LEVEL 5.84.0)
 set(CMAKE_CXX_STANDARD 17)
