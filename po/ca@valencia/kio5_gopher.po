@@ -25,17 +25,17 @@ msgstr ""
 #: kio_gopher.cpp:90
 #, kde-format
 msgid "Connecting to %1..."
-msgstr "S'està connectant amb %1..."
+msgstr "S'està connectant amb %1…"
 
 #: kio_gopher.cpp:91
 #, kde-format
 msgid "%1 contacted. Retrieving data..."
-msgstr "S'ha contactat amb %1. S'estan obtenint les dades..."
+msgstr "S'ha contactat amb %1. S'estan obtenint les dades…"
 
 #: kio_gopher.cpp:105
 #, kde-format
 msgid "Retrieved %1 bytes from %2..."
-msgstr "S'han rebut %1 bytes de %2..."
+msgstr "S'han rebut %1 bytes de %2…"
 
 #: kio_gopher.cpp:314
 #, kde-format
