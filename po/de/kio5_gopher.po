@@ -3,7 +3,7 @@
 # Frederik Schwarzer <schwarzer@kde.org>, 2011.
 msgid ""
 msgstr ""
-"Project-Id-Version: kio_gopher\n"
+"Project-Id-Version: kio5_gopher\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:32+0000\n"
 "PO-Revision-Date: 2011-07-10 01:22+0200\n"
