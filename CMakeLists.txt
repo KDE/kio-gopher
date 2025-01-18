@@ -54,9 +54,7 @@ add_definitions(
 
 add_subdirectory(doc)
 
-set(kio_gopher_PART_SRCS kio_gopher.cpp)
-
-add_library(kio_gopher MODULE ${kio_gopher_PART_SRCS})
+add_library(kio_gopher MODULE kio_gopher.cpp)
 
 target_link_libraries(kio_gopher
     KF${QT_MAJOR_VERSION}::IconThemes
