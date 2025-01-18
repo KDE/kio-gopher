@@ -13,6 +13,7 @@
 #include <QMimeType>
 #include <QUrl>
 
+#include <kio/ioworker_defaults.h>
 #include <klocalizedstring.h>
 
 using namespace KIO;
@@ -368,7 +369,7 @@ int gopher::connectToHost(const QString &host, quint16 port, QString *errorStrin
         errorString->clear(); // clear prior error messages.
     }
 
-    const int timeout = (connectTimeout() * 1000); // 20 sec timeout value
+    const int timeout = (DEFAULT_CONNECT_TIMEOUT * 1000); // 20 sec timeout value
 
     disconnectFromHost(); // Reset some state, even if we are already disconnected
 
