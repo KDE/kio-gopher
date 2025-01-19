@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio_gopher\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2025-01-19 01:53+0000\n"
 "PO-Revision-Date: 2004-08-14 13:07+0530\n"
 "Last-Translator: I. Felix <ifelix25@yahoo.co.in>\n"
 "Language-Team: Tamil <ta@i18n.kde.org>\n"
@@ -16,27 +16,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: kio_gopher.cpp:90
+#: kio_gopher.cpp:91
 #, kde-format
 msgid "Connecting to %1..."
 msgstr "%1க்கு இணைக்கிறது..."
 
-#: kio_gopher.cpp:91
+#: kio_gopher.cpp:92
 #, kde-format
 msgid "%1 contacted. Retrieving data..."
 msgstr "%1 அழைத்தது. தரவை மீட்டு எடுக்கிறது..."
 
-#: kio_gopher.cpp:105
+#: kio_gopher.cpp:106
 #, kde-format
 msgid "Retrieved %1 bytes from %2..."
 msgstr "%2வில் இருந்து %1 பைட்ஸ் எடுக்கப்பட்டது..."
 
-#: kio_gopher.cpp:314
+#: kio_gopher.cpp:315
 #, kde-format
 msgid "Enter a search term:"
 msgstr "தேடுவதற்கான வார்த்தையை உள்ளிடவும்:"
 
-#: kio_gopher.cpp:318
+#: kio_gopher.cpp:319
 #, fuzzy, kde-format
 #| msgid "Search"
 msgctxt "Text on a search button, like at a search engine"

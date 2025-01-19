@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio_gopher\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2025-01-19 01:53+0000\n"
 "PO-Revision-Date: 2009-01-30 10:26+0100\n"
 "Last-Translator: Vít Pelčák <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@lists.kde.org>\n"
@@ -16,27 +16,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: kio_gopher.cpp:90
+#: kio_gopher.cpp:91
 #, kde-format
 msgid "Connecting to %1..."
 msgstr "Připojování k %1..."
 
-#: kio_gopher.cpp:91
+#: kio_gopher.cpp:92
 #, kde-format
 msgid "%1 contacted. Retrieving data..."
 msgstr "%1 připojeno. Získávám data..."
 
-#: kio_gopher.cpp:105
+#: kio_gopher.cpp:106
 #, kde-format
 msgid "Retrieved %1 bytes from %2..."
 msgstr "Obdrženo %1 B z %2..."
 
-#: kio_gopher.cpp:314
+#: kio_gopher.cpp:315
 #, kde-format
 msgid "Enter a search term:"
 msgstr "Zadejte vyhledávací podmínky:"
 
-#: kio_gopher.cpp:318
+#: kio_gopher.cpp:319
 #, kde-format
 msgctxt "Text on a search button, like at a search engine"
 msgid "Search"

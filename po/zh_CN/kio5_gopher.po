@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2025-01-19 01:53+0000\n"
 "PO-Revision-Date: 2024-04-23 19:30\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -17,27 +17,27 @@ msgstr ""
 "X-Crowdin-File: /kf5-trunk/messages/kio-gopher/kio5_gopher.pot\n"
 "X-Crowdin-File-ID: 5959\n"
 
-#: kio_gopher.cpp:90
+#: kio_gopher.cpp:91
 #, kde-format
 msgid "Connecting to %1..."
 msgstr "正在连接到 %1..."
 
-#: kio_gopher.cpp:91
+#: kio_gopher.cpp:92
 #, kde-format
 msgid "%1 contacted. Retrieving data..."
 msgstr "已连接 %1。正在获取数据..."
 
-#: kio_gopher.cpp:105
+#: kio_gopher.cpp:106
 #, kde-format
 msgid "Retrieved %1 bytes from %2..."
 msgstr "已从 %2 获取 %1 字节数据..."
 
-#: kio_gopher.cpp:314
+#: kio_gopher.cpp:315
 #, kde-format
 msgid "Enter a search term:"
 msgstr "输入搜索关键词："
 
-#: kio_gopher.cpp:318
+#: kio_gopher.cpp:319
 #, kde-format
 msgctxt "Text on a search button, like at a search engine"
 msgid "Search"
