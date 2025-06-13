@@ -2,13 +2,13 @@ cmake_minimum_required(VERSION 3.16)
 
 project(kio_gopher)
 
-set(QT_MIN_VERSION 5.15.2)
-set(KF5_MIN_VERSION 5.99.0)
+set(QT_MIN_VERSION 6.5.0)
+set(KF_MIN_VERSION 6.0.0)
 set(KDE_COMPILERSETTINGS_LEVEL 5.84.0)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
+find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 
 # where to look first for cmake modules, before ${CMAKE_ROOT}/Modules/ is checked
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
@@ -23,12 +23,12 @@ include(GenerateExportHeader)
 include(KDEClangFormat)
 include(KDEGitCommitHooks)
 
-find_package(Qt${QT_MAJOR_VERSION} REQUIRED NO_MODULE
+find_package(Qt6 REQUIRED NO_MODULE
     COMPONENTS
     Core
 )
 
-find_package(KF${QT_MAJOR_VERSION} ${KF5_MIN_VERSION} REQUIRED
+find_package(KF6 ${KF_MIN_VERSION} REQUIRED
     COMPONENTS
     DocTools
     IconThemes
@@ -57,13 +57,13 @@ add_subdirectory(doc)
 add_library(kio_gopher MODULE kio_gopher.cpp)
 
 target_link_libraries(kio_gopher
-    KF${QT_MAJOR_VERSION}::IconThemes
-    KF${QT_MAJOR_VERSION}::I18n
-    KF${QT_MAJOR_VERSION}::KIOCore
+    KF6::IconThemes
+    KF6::I18n
+    KF6::KIOCore
 )
 
 set_target_properties(kio_gopher PROPERTIES OUTPUT_NAME "gopher")
-install(TARGETS kio_gopher DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf${QT_MAJOR_VERSION}/kio)
+install(TARGETS kio_gopher DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf6/kio)
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
