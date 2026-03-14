@@ -341,8 +341,12 @@ void gopher::addIcon(const QString &type, const QByteArray &url, QByteArray &sho
         QMimeType mime = db.mimeTypeForFile(QUrl(url).path(), QMimeDatabase::MatchExtension);
         icon = mime.iconName();
     }
-    QFile file(m_iconLoader.iconPath(icon, -16));
-    file.open(QIODevice::ReadOnly);
+    const QString iconPath = m_iconLoader.iconPath(icon, -16);
+    QFile file(iconPath);
+    if (!file.open(QIODevice::ReadOnly)) {
+        qWarning() << "Failed to open" << iconPath;
+        return;
+    }
     const QMimeType iconMime = db.mimeTypeForFile(file.fileName(), QMimeDatabase::MatchExtension);
     QByteArray ba = file.readAll();
     show.append("<img width=\"16\" height=\"16\" src=\"data:");
