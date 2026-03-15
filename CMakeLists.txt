@@ -53,6 +53,8 @@ add_definitions(
 )
 
 add_subdirectory(doc)
+ki18n_install(po)
+kdoctools_install(po)
 
 add_library(kio_gopher MODULE kio_gopher.cpp)
 
