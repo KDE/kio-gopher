@@ -3,7 +3,7 @@
         "gopher": {
             "Class": ":internet",
             "X-DocPath": "kioslave5/gopher/index.html",
-            "defaultMimetype": "application/octet-stream",
+            "defaultMimetype": "text/html",
             "determineMimetypeFromExtension": false,
             "exec": "kf5/kio/gopher",
             "input": "none",
