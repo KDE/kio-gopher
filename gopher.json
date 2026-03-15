@@ -5,7 +5,6 @@
             "X-DocPath": "kioworker6/file/index.html",
             "defaultMimetype": "text/html",
             "determineMimetypeFromExtension": false,
-            "exec": "kf5/kio/gopher",
             "input": "none",
             "output": "filesystem",
             "protocol": "gopher",
