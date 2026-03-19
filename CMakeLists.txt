@@ -36,7 +36,7 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED
     KIO
 )
 
-add_definitions(-DTRANSLATION_DOMAIN=\"kio5_gopher\")
+add_definitions(-DTRANSLATION_DOMAIN=\"kio6_gopher\")
 add_definitions(
     -DQT_DISABLE_DEPRECATED_BEFORE=0x050500
     -DQT_DEPRECATED_WARNINGS_SINCE=0x060000

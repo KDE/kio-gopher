@@ -1,2 +1,2 @@
 #! /usr/bin/env bash
-$XGETTEXT *.cpp -o $podir/kio5_gopher.pot
+$XGETTEXT *.cpp -o $podir/kio6_gopher.pot
