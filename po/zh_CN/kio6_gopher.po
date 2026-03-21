@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/kio-gopher/kio5_gopher.pot\n"
-"X-Crowdin-File-ID: 57954\n"
+"X-Crowdin-File: /kf6-trunk/messages/kio-gopher/kio6_gopher.pot\n"
+"X-Crowdin-File-ID: 60098\n"
 
 #: kio_gopher.cpp:91
 #, kde-format

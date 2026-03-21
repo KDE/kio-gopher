@@ -34,7 +34,7 @@ msgstr "%1 ile iletişim kuruldu. Veri alınıyor…"
 #: kio_gopher.cpp:106
 #, kde-format
 msgid "Retrieved %1 bytes from %2..."
-msgstr "%1/%2 bayt alındı…"
+msgstr "%1 / %2 bayt alındı…"
 
 #: kio_gopher.cpp:315
 #, kde-format
