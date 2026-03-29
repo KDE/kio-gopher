@@ -1,4 +1,4 @@
-# Translation of kio5_gopher to Norwegian Bokmål
+# Translation of kio6_gopher to Norwegian Bokmål
 #
 # Knut Yrvin <knut.yrvin@gmail.com>, 2003.
 # Bjørn Steensrud <bjornst@skogkatt.homelinux.org>, 2009.

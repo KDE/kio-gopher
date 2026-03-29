@@ -1,4 +1,4 @@
-# Translation of kio5_gopher to Norwegian Nynorsk
+# Translation of kio6_gopher to Norwegian Nynorsk
 #
 # Karl Ove Hufthammer <karl@huftis.org>, 2018.
 msgid ""
