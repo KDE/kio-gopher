@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Arabic "INCLUDE"
+> <!-- change language only here -->
+]>
+<article lang="&language;" id="gopher">
+<title
+>غوفر</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+><command
+>غوفر</command
+> بدأ كخدمة معلومات جامعية موزعة في جامعة مينيسوتا. يسمح غوفر للمستخدم بالوصول إلى المعلومات على خوادم غوفر العاملة على مضيفي الإنترنت.</para>
+
+<para
+>غوفر هو خدمة تصفح معلومات إنترنت تستخدم واجهة قائمة موجهة. يختار المستخدمون المعلومات من القوائم، التي قد تعيد قائمة أخرى أو تعرض ملفًا نصيًا. قد يوجد عنصر على خادم غوفر استفسرت عنه أصلًا، أو قد يكون على خادم غوفر آخر (أو مضيف آخر). يستطيع غوفر <quote
+>النفق</quote
+> من غوفر إلى آخر دون علم المستخدم بتغير الخادم و/أو آلة المضيف. يخفي غوفر الموقع الدقيق للحواسيب عن المستخدم، مقدمًا <quote
+>وهم</quote
+> مجموعة واحدة كبيرة من القوائم المترابطة. </para>
+
+<para
+>يسمح غوفر للمستخدم بتسجيل موقع عنصر في <quote
+>علامة مرجعية</quote
+> مما يسمح للمستخدمين باتباع <quote
+>علامة مرجعية</quote
+> مباشرة إلى عنصر معين دون البحث في نظام القوائم. قوائم غوفر ليست موحدة، بقدر ما يُحدد كل خادم غوفر بشكل فردي. </para>
+
+<para
+>المصدر: <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/gophrdef.htm"
+> http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/gophrdef.htm</ulink
+> </para>
+</article>
